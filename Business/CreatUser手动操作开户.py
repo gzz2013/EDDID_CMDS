@@ -15,9 +15,9 @@ class CreatUser():
     def ApplyClinet资料提交(self):
         global phone, token, eddidhost, s, cremail, rfirstName, rlastName, rchName, idCardNo, cookfront
         # 生成电话号
-        # phone = Randoms().telephone()
+        phone = Randoms().telephone()
         # print("phone数据类型************************************************",type(phone))
-        phone = "18150356313"
+        # phone = "18150356313"
         # 生成新邮箱
         cremail = Randoms.RandomEmail()
         # cremail="zack.gan@edsz9.com"
@@ -34,8 +34,9 @@ class CreatUser():
         idCardNo = Randoms().ident_generator()
         # idCardNo="320301198808103293"
         # 国籍
-        cantrCode = "CHN"
+        # cantrCode = "CHN"
         # cantrCode = "HKG"
+        cantrCode ="MYS"
         # 身份证类型 香港为"1" 大陆为"2"
         idCardT = "2"
         # cookies的前缀
@@ -100,6 +101,7 @@ class CreatUser():
                     "idCardNo": idCardNo,
                     "otherCardType": "",
                     "otherCardNo": "",
+                    #国家
                     "countryIssue": cantrCode,
                     "overCountry": cantrCode,
                     "birthday": "1994-08-09",
@@ -108,9 +110,13 @@ class CreatUser():
                     "employmentStatus": "self",
                     "post": "businessOwner",
                     "workingYear": "11",
-                    "companyName": "接口自动化" + caccts,
-                    "businessNature": "wholesale&retail",
-                    "officeAddress": "47845512245" + caccts,
+                    #公司名称
+                    "companyName": "自动化" + caccts,
+                    #职业
+                    "businessNature": "financial",
+                    # "businessNature": "education",
+                    #公司地址
+                    "officeAddress": "香港47845512245" + caccts,
                     "officePhone": "0771-" + caccts,
                     "registeredCompany": "Y",
                     "employmentRemark": "",

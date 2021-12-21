@@ -172,7 +172,6 @@ class CreatEquitiesWithdrawal出金():
 
         cstate = gs_wrkflw_log(applyId)[0][3]
         print("数据库查询到当前流程状态cstate的值为{}".format(cstate))
-
         b = 20
         while cstate == "SYS_HANDLEING_8":
             time.sleep(20)

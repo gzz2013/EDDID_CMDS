@@ -117,6 +117,12 @@ def  cd_clnt_bank_ac(clnt_id):
                                      sql="select * from cd_clnt_bank_ac WHERE clnt_id={} ORDER BY init_time DESC LIMIT 1 ".format(clnt_id))
     return cd_clnt_bank_ac
 
+#记录行情服务审批单
+def  gs_mrktdat_sub(clnt_id):
+    gs_mrktdat_sub = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="select * from gs_mrktdat_sub WHERE clnt_id={} ORDER BY init_time DESC LIMIT 1 ".format(clnt_id))
+    return gs_mrktdat_sub
+
 if __name__=="__main__":
     # a=cd_ac('NORMAL','CASH','EQUITIES',11431)
     # print(a)
@@ -136,8 +142,9 @@ if __name__=="__main__":
     # print("get_clnt_id:",get_clnt_id(13480701220)[0][1])
     # print("get_clnt_id:",get_clnt_id(13480701220))
     # print("cd_ac_id:",cd_ac_id(5007805216))
-    print("cd_ac_trading_apply:",cd_ac_trading_apply(88060))
-    print("cd_clnt_bank_ac_apply:", cd_clnt_bank_ac_apply(501015))
-    print("cd_clnt_bank_ac:", cd_clnt_bank_ac(501015))
+    # print("cd_ac_trading_apply:",cd_ac_trading_apply(88060))
+    # print("cd_clnt_bank_ac_apply:", cd_clnt_bank_ac_apply(501015))
+    # print("cd_clnt_bank_ac:", cd_clnt_bank_ac(501015))
+    print("gs_mrktdat_sub:", gs_mrktdat_sub(500602))
 
 

@@ -52,7 +52,10 @@ cdmsuserp="111111"
 # 交易账户
 CreateExchangeclientId=11431
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
+#H5登录账号
+phone=10928489323
+sqldata_h5="message_push_qa"
+app_base_url="https://route-service-qa.eddid.com.cn:1443"
 
 
 

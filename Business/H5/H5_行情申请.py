@@ -15,16 +15,16 @@ class Creat_mrktdat_sub():
 
     # 步骤1,H5页面提交行情管理
     def H5submit_mrktdat(self):
-        token_h5=h5_caccessToken()
-        H5_requests = requests.Session()
+        tokenh5=h5_caccessToken()
+        H5requests = requests.Session()
         headers = {
             "accept": "application/json, text/plain, */*",
-            "authorization": "Bearer "+ token_h5,
+            "authorization": "Bearer "+ tokenh5,
             "content-type": "application/json;charset=utf-8",
             "accept-encoding": "gzip, deflate, br",
             "content-length": "149"
         }
-        print("当前token为:{}".format(token_h5))
+        print("当前token为:{}".format(tokenh5))
         print("headers", headers)
         # closeAccturl = eddidhost + "/api/acct/closeAcct"
         H5submitmrktdaturl = app_base_url + "/open/account/trade/quote-service/application"
@@ -40,7 +40,7 @@ class Creat_mrktdat_sub():
             "subscribeNumber":1
         }
         print("data=", data)
-        H5submit_mrktdatResp = H5_requests.post(url=H5submitmrktdaturl, headers=headers, json=data)
+        H5submit_mrktdatResp = H5requests.post(url=H5submitmrktdaturl, headers=headers, json=data)
         logging.info("步骤1提交接口'{}';请求参数为:{};的响应结果为:'{}'".format(H5submitmrktdaturl, data, H5submit_mrktdatResp.text))
         print("步骤1提交接口'{}';请求参数为:{};响应结果为:'{}'".format(H5submitmrktdaturl, data, H5submit_mrktdatResp.text))
         return H5submit_mrktdatResp

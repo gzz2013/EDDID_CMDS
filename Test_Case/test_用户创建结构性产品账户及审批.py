@@ -4,7 +4,7 @@ import logging
 from Business.Creat没有结构性产品账号及申请结构性产品审批 import CreatUser无结构性产品用户创建
 from Common.com_sql import *
 from Common.data_文本读写 import *
-
+#2021年12月30日13:56:22
 
 class Test_creatUser没有结构性产品账号及申请结构性产品审批(unittest.TestCase):
 

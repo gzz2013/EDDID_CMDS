@@ -1,4 +1,6 @@
+#2021年12月30日13:56:22
 import unittest
+
 import HTMLReport
 from Business.login import cdms_获取token
 from Common.data_文本读写 import *
@@ -9,7 +11,6 @@ from Test_Suite.suite_cmds_Summary import *
 #收集用例之前先把token写到对应文件
 # token = cdms_获取token()
 # data_write('F:\\python\\EDDID_CDMS\\Data\\token.txt', token)
-
 suite = unittest.TestSuite()
 suite.addTests(get_suite_creatUser新建用户())
 suite.addTests(get_suite_CreateExchange新建换汇申请单())

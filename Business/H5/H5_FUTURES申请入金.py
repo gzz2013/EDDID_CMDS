@@ -1,71 +1,67 @@
+# -*- coding:utf-8 -*-
 import requests
+from Business.H5.mobile_login import h5_caccessToken
 from Business.login import cdms_获取token
 from Common.random_number import Randoms
 import logging
+from Common.com_sql.eddid_data_update import *
 import time
 from Common.com_sql.eddid_data_select import *
 from Config.cdms_config import *
 from Common.data_文本读写 import *
 
 
-class CreatEquitiesDeposit入金():
+class Creat_h5_deposit():
 
-    def createDeposit创建入金单(self):
-        global clientId, depositAmount, eddidhost, token, s
-        eddidhost = url
-        token = cdms_获取token()
-        # token = data_read('F:\\python\\EDDID_CDMS\\Data\\token.txt')
-        s = requests.Session()
-        # Randoms实例化
-        clientId = 100861
-        # clientId = Randoms().choice_clientId()
-        # accountId因clientId而变化
-        # if clientId == 11431:
-        #     #证券现金账户
-        #     accountId = 114311110
-        # else:
-        #     accountId = 120711110
+    # 步骤1,H5页面提交入金申请
+    def H5submit_deposit(self):
+        global clientId,tanceAmount
+        tokenh5=h5_caccessToken()
+        H5requests = requests.Session()
 
-        # print("================================获取到clientId为：{}，accountId为：{}".format(clientId, accountId))
-        depositAmount = Randoms().randomAmount()
+        clientId="501098"
+
+        tanceAmount = Randoms().randomAmount()
         headers = {
-            "Accept": "application/json, text/javascript, */*; q=0.01",
-            "Connection": "keep-alive",
-            "Cookie": "LANGUAGE=zh_CN;GB-SYS-SID-SIT=" + token
+            "accept": "application/json, text/plain, */*",
+            "authorization": "Bearer "+ tokenh5,
+            "content-type": "application/json;charset=utf-8",
+            "accept-encoding": "gzip, deflate, br",
         }
-        logging.info("当前token为:{}".format(token))
-        print("当前token为:{}".format(token))
+        print("当前token为:{}".format(tokenh5))
         print("headers", headers)
-        createDepositurl = eddidhost + "/api/funds/createDeposit"
-        print("createWithdrawalurl:", createDepositurl)
-        # logging.info("提交出金申请单时{}".format(createWithdrawalurl))
+        # closeAccturl = eddidhost + "/api/acct/closeAcct"
+        H5submitdepositurl = app_base_url + "/open/account/fund/deposit/application"
+        print("H5submitmrktdaturl为：", H5submitdepositurl)
         data = {
-            "clientId": clientId,
-            "depositType": "online_bank_deposit",
-            "remittanceBankName": "渣打银行(香港)有限公司 003",
-            "remittanceBankCard": "32323232",
-            "sibMobile": 'null',
-            "depositAmount": depositAmount,
-            "accountId": "1008611230",
-            "accountCategory": "securitiesCash",
-            "remittanceBankCode": "003",
-            "beneficiaryBankCode": "012",
-            "beneficiaryBankName": "中国银行（香港）有限公司",
-            "beneficiaryBankCard": "012-873-2-002063-5",
-            "depositCurrency": "HKD",
-            "applySource": 4,
-            "fileList": [
-                "/hzlc_20211101100818.jpg"
-            ]
+            "beneficiaryAccount":"016-478-000324487",
+            "depositImages":[
+                "4e70f72d-6ebc-48dd-abfb-d8e50723358e.jpg"
+            ],
+            "depositType":"ATM_TRANSFER_DEPOSIT",
+            "remittanceAmount":tanceAmount,
+            "remittanceBankAccount":"658899",
+            "remittanceBankCode":"024",
+            "remittanceBankType":"OTHER",
+            "remittanceCurrency":"HKD",
+            "submitSource":"CP_H5",
+            "tradeAccountNumber":"5010983210",
+            "tradeAccountType":"FUTURES_MARGIN"
         }
-        createDepositResp = s.post(url=createDepositurl, headers=headers, json=data)
-        logging.info("步骤1接口'{}';请求参数为:{};响应结果为：'{}'".format(createDepositurl, data, createDepositResp.text))
-        print("步骤1接口'{}';请求参数为:{};响应结果为：'{}'".format(createDepositurl, data, createDepositResp.text))
-        return createDepositResp
+        print("data=", data)
+        H5submitdeposiResp = H5requests.post(url=H5submitdepositurl, headers=headers, json=data)
+        logging.info("步骤1提交接口'{}';请求参数为:{};的响应结果为:'{}'".format(H5submitdepositurl, data, H5submitdeposiResp.text))
+        print("步骤1提交接口'{}';请求参数为:{};响应结果为:'{}'".format(H5submitdepositurl, data, H5submitdeposiResp.text))
+        return H5submitdeposiResp
 
     def operatingWorkFlowNo(self):
-        global applyId
-        applyId = cd_deposit(clientId, depositAmount)[0][0]
+        global applyId,token,eddidhost,s
+        #web端的请求体
+        s=requests.Session()
+        token=cdms_获取token()
+        eddidhost=url
+
+        applyId = cd_deposit(clientId,tanceAmount)[0][0]
         headers = {
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "Connection": "keep-alive",
@@ -113,7 +109,7 @@ class CreatEquitiesDeposit入金():
             ],
             "depositType": "online_bank_deposit",
             # 提交前填写的金额
-            "realAmount": depositAmount,
+            "realAmount": tanceAmount,
             # 提交前填写的银行卡号
             "realBankCard": "012-873-2-002063-5",
             "realBankCode": "016",
@@ -127,6 +123,7 @@ class CreatEquitiesDeposit入金():
         return auditDepositNoResp
 
     def get_current_state_deposit(self):
+
         cstate = gs_wrkflw_log(applyId)[0][3]
         print("数据库查询到当前流程状态cstate的值为{}".format(cstate))
         # 如果系统处理中，一直循环不中断
@@ -150,8 +147,7 @@ class CreatEquitiesDeposit入金():
             print("当前状态为成功，流程结束！")
             logging.info("当前状态为成功，流程结束！")
         # 如果返回的是系统处理失败，就再次锁定推进
-            auditDepositToResp="出金成功，流程结束！"
-            return auditDepositToResp
+
         # 如果是CLER处理中
         elif cstate == 'CLER_HANDLEING_7':
             time.sleep(15)
@@ -195,7 +191,7 @@ class CreatEquitiesDeposit入金():
             auditDepositToResp = s.post(url=auditDepositTourl, headers=headers, json=data)
             logging.info("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
             print("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
-            return auditDepositToResp
+            # return auditDepositToResp
         # 如果是系统处理失败
         else:
             time.sleep(15)
@@ -239,18 +235,25 @@ class CreatEquitiesDeposit入金():
             auditDepositToResp = s.post(url=auditDepositTourl, headers=headers, json=data)
             logging.info("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
             print("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
-            return auditDepositToResp
+            # return auditDepositToResp
+
+        sqlauditDepositTo=gs_wrkflw_log(applyId)[0]
+
+        logging.info("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
+        print("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
+        return sqlauditDepositTo
+
 
 
 if __name__ == "__main__":
-    a = 1
-    CreatDeposit = CreatEquitiesDeposit入金()
-    for i in range(a):
-        # 实例化CreatUser
-        print("=====================================步骤1：", CreatDeposit.createDeposit创建入金单().text)
-        time.sleep(10)
-        print("=====================================步骤2：", CreatDeposit.operatingWorkFlowNo().text)
-        time.sleep(10)
-        print("=====================================步骤3：", CreatDeposit.auditDepositNo().text)
-        time.sleep(10)
-        print("=====================================步骤4：", CreatDeposit.get_current_state_deposit())
+    Creat_h5_deposit=Creat_h5_deposit()
+    print("步骤1，app提交出金申请",Creat_h5_deposit.H5submit_deposit().text)
+    time.sleep(7)
+    print("步骤2，第一次提交锁", Creat_h5_deposit.operatingWorkFlowNo().text)
+    time.sleep(7)
+    print("步骤3，CS2审批通过", Creat_h5_deposit.auditDepositNo().text)
+    time.sleep(7)
+    print("步骤4，根据状态审核通过", Creat_h5_deposit.get_current_state_deposit())
+
+
+

@@ -14,7 +14,7 @@ from Test_Case.test_createClientBankApply import Test_CreateClientBank添加银�
 from Test_Case.test_closeAcct账号关闭 import Test_closeAcct账号关闭
 from Test_Case.test_mrktdat_sub行情申请_1229 import Test_Submit_mrktdat行情提交及审核
 
-
+from Test_Case.test_h5_deposit_1230 import Test_H5_DEPOSIT入金
 
 
 def get_suite_creatUser新建用户后停用():
@@ -93,4 +93,12 @@ def get_suite_Creat_mrktdat_sub():
     loader=unittest.TestLoader()
     suite=unittest.TestSuite()
     suite.addTests(loader.loadTestsFromTestCase(Test_Submit_mrktdat行情提交及审核))
+    return suite
+
+
+
+def get_suite_Creat_deposit_sub():
+    loader=unittest.TestLoader()
+    suite=unittest.TestSuite()
+    suite.addTests(loader.loadTestsFromTestCase(Test_H5_DEPOSIT入金))
     return suite

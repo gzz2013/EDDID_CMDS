@@ -41,8 +41,8 @@ eddid_gfss_shhpasswd=''
 # eddid_gfss_shhpasswd='dev2021DEV'
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 #运营人员登录账户
-# cdmsuser="cdmstest"
-cdmsuser="ganjiexiang"
+cdmsuser="cdmstest"
+# cdmsuser="ganjiexiang"
 cdmsuserp="111111"
 # cdmsuser="admin"
 # cdmsuserp="admin123uat"

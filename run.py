@@ -8,7 +8,6 @@ from Test_Suite.suite_cmds_Summary import *
 
 #收集用例之前先把token写到对应文件
 # token = cdms_获取token()
-# 将token写入文本
 # data_write('F:\\python\\EDDID_CDMS\\Data\\token.txt', token)
 
 suite = unittest.TestSuite()

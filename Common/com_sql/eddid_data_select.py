@@ -69,7 +69,7 @@ def  cd_withdrawal(clnt_id,wd_amt):
 #通过交易证券账号和金额查询入金申请单号
 def  cd_deposit(clnt_id,dep_amt):
     cd_deposit = SQL_Check.eddid_gfss_sit(database=sqldata,
-                                     sql="select * from cd_deposit where clnt_id={} and dep_amt={} ORDER BY init_time DESC  limit 1; ".format(clnt_id,dep_amt))
+                                     sql="select * from cd_deposit where clnt_id={} and dep_amt={} ORDER BY init_time DESC  limit 1".format(clnt_id,dep_amt))
     return cd_deposit
 
 #查询当前流程状态
@@ -141,7 +141,7 @@ if __name__=="__main__":
     # print("cd_deposit++++++++++++++",cd_deposit(11431,46.41))
     # print("get_clnt_id:",get_clnt_id(13480701220)[0][1])
     # print("get_clnt_id:",get_clnt_id(13480701220))
-    # print("cd_ac_id:",cd_ac_id(5007805216))
+    print("cd_ac_id:",cd_ac_id(5010983210))
     # print("cd_ac_trading_apply:",cd_ac_trading_apply(88060))
     # print("cd_clnt_bank_ac_apply:", cd_clnt_bank_ac_apply(501015))
     # print("cd_clnt_bank_ac:", cd_clnt_bank_ac(501015))

@@ -15,7 +15,8 @@ class Test_creatUser新建用户创建所有类型账户(unittest.TestCase):
     def test_01_applyClient用户资料提交用例校验(self):
         applyClient = self.creatUser.ApplyClinet资料提交()
         self.assertEqual(200, applyClient.status_code)
-        self.assertEqual("操作成功", applyClient.json().get("msg"))
+        # self.assertEqual("操作成功", applyClient.json().get("msg"))
+        self.assertEqual("OK", applyClient.json().get("msg"))
         print("已执行用例1===============================================================")
 
     def test_02_submitAudit提交审核(self):

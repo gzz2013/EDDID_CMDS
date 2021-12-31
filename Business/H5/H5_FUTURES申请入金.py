@@ -4,7 +4,7 @@ from Business.H5.mobile_login import h5_caccessToken
 from Business.login import cdms_获取token
 from Common.random_number import Randoms
 import logging
-from Common.com_sql.eddid_data_update import *
+from Common.com_sql.eddid_data_select import *
 import time
 from Common.com_sql.eddid_data_select import *
 from Config.cdms_config import *
@@ -15,16 +15,18 @@ class Creat_h5_deposit():
 
     # 步骤1,H5页面提交入金申请
     def H5submit_deposit(self):
-        global clientId,tanceAmount
-        tokenh5=h5_caccessToken()
+        global clientId, tanceAmount,ac_id
+        tokenh5 = h5_caccessToken()
         H5requests = requests.Session()
-
-        clientId="501098"
-
+        ac_id = datahandle(data_read('F:\\python\\EDDID_CDMS\\Data\\unableAcct.txt'))[0]
+        clientId = datahandle(data_read('F:\\python\\EDDID_CDMS\\Data\\unableAcct.txt'))[1]
+        Accountinfro = cd_ac_id(ac_id)
+        tradeAccountType = Accountinfro[0][4] + "_" + Accountinfro[0][5]
+        tanceBankAccount = str(clientId) + "3546"
         tanceAmount = Randoms().randomAmount()
         headers = {
             "accept": "application/json, text/plain, */*",
-            "authorization": "Bearer "+ tokenh5,
+            "authorization": "Bearer " + tokenh5,
             "content-type": "application/json;charset=utf-8",
             "accept-encoding": "gzip, deflate, br",
         }
@@ -40,13 +42,13 @@ class Creat_h5_deposit():
             ],
             "depositType":"ATM_TRANSFER_DEPOSIT",
             "remittanceAmount":tanceAmount,
-            "remittanceBankAccount":"658899",
+            "remittanceBankAccount":tanceBankAccount,
             "remittanceBankCode":"024",
             "remittanceBankType":"OTHER",
             "remittanceCurrency":"HKD",
             "submitSource":"CP_H5",
-            "tradeAccountNumber":"5010983210",
-            "tradeAccountType":"FUTURES_MARGIN"
+            "tradeAccountNumber":ac_id,
+            "tradeAccountType":tradeAccountType
         }
         print("data=", data)
         H5submitdeposiResp = H5requests.post(url=H5submitdepositurl, headers=headers, json=data)

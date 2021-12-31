@@ -58,8 +58,9 @@ class Test_CreatEquitiesWithdrawal出金(unittest.TestCase):
 
     def test_08_auditWithdrawalAcctPass(self):
         auditWithdrawalAcctPass = self.CreatEquitiesWithdrawal.auditWithdrawalAcctPass()
-        self.assertEqual(200, auditWithdrawalAcctPass.status_code)
-        self.assertEqual("操作成功", auditWithdrawalAcctPass.json().get("msg"))
+        self.assertEqual("DONE_7", auditWithdrawalAcctPass[3])
+        self.assertEqual("depositApply", auditWithdrawalAcctPass[8])
+        self.assertEqual("入金申请", auditWithdrawalAcctPass[9])
         print("已执行用例8===============================================================")
 
     #

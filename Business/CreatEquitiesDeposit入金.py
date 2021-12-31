@@ -150,8 +150,7 @@ class CreatEquitiesDeposit入金():
             print("当前状态为成功，流程结束！")
             logging.info("当前状态为成功，流程结束！")
         # 如果返回的是系统处理失败，就再次锁定推进
-            auditDepositToResp="出金成功，流程结束！"
-            return auditDepositToResp
+
         # 如果是CLER处理中
         elif cstate == 'CLER_HANDLEING_7':
             time.sleep(15)

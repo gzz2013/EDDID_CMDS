@@ -15,16 +15,23 @@ class Test_CreateExchange新建换汇申请单(unittest.TestCase):
     def test_01_createExchange创建换汇申请单(self):
         createExchange = self.CreateExchange.createExchange创建换汇申请单()
         self.assertEqual(200, createExchange.status_code)
-        self.assertEqual("操作成功", createExchange.json().get("msg"))
+        self.assertIn(createExchange.json().get("msg"),"操作成功，OK")
         print("已执行用例1===============================================================")
 
-    def test_02_auditExchange提交审核换汇申请单(self):
+    def test_02_operatingWorkFlowFirst提交锁(self):
+        operatingWorkFlowFirst = self.CreateExchange.operatingWorkFlowFirst提交锁()
+        self.assertEqual(200, operatingWorkFlowFirst.status_code)
+        self.assertEqual("操作成功", operatingWorkFlowFirst.json().get("msg"))
+        self.assertEqual("操作成功", operatingWorkFlowFirst.json().get("data")[0].get("operatingMessage"))
+        print("已执行用例3===============================================================")
+
+    def test_03_auditExchange提交审核换汇申请单(self):
         auditExchange = self.CreateExchange.auditExchange提交审核换汇申请单()
         self.assertEqual(200, auditExchange.status_code)
         self.assertEqual("操作成功", auditExchange.json().get("msg"))
         print("已执行用例2===============================================================")
 
-    def test_03_SQLCheckexchorder(self):
+    def test_04_SQLCheckexchorder(self):
         #数据库查询出数据
         SQLCheckexchorderinfor = self.CreateExchange.SQLCheckexchorder()
 
@@ -32,7 +39,6 @@ class Test_CreateExchange新建换汇申请单(unittest.TestCase):
         Txtexchorderinfor=datahandle(data_read('F:\\python\\EDDID_CDMS\\Data\\exchorderinfor.txt'))
         logging.info("从文本中读到的换汇单基本信息为：{}".format(Txtexchorderinfor))
         print(Txtexchorderinfor,type(Txtexchorderinfor))
-
         self.assertEqual("USD", SQLCheckexchorderinfor[0][6])
         self.assertEqual("HKD", SQLCheckexchorderinfor[0][5])
         # self.assertEqual(2, SQLCheckexchorderinfor[0][-1])
@@ -43,7 +49,7 @@ class Test_CreateExchange新建换汇申请单(unittest.TestCase):
         self.assertEqual(float(Txtexchorderinfor[3]), float('%.3f'%(SQLCheckexchorderinfor[0][7])))
 
         print("已执行用例3===============================================================")
-    #
+
     def tearDown(self):
         a = 6
         time.sleep(a)

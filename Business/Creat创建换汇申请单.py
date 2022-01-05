@@ -11,9 +11,11 @@ from Common.data_文本读写 import *
 class CreateExchange():
     # 步骤1
     def createExchange创建换汇申请单(self):
-        global clientId, applyAmount, eddidhost
+        global clientId, applyAmount, eddidhost,cookfront,token,s
+        cookfront=cookfr
         clientId = CreateExchangeclientId
         applyAmount = Randoms().randomAmount()
+        # applyAmount =3.39
         # 从数据库中读取到的最新汇率数据库小数类型转化成python的浮点型
         newrate = float('%.3f' % (get_newrate()[0][2]))
         # 查询符合条件的换汇账号
@@ -71,13 +73,48 @@ class CreateExchange():
         print("步骤1提交审核接口'{}';请求参数为:{};响应结果为:'{}'".format(createExchangeturl, data, createExchangeResp.text))
         return createExchangeResp
 
+    # 锁定
+    def operatingWorkFlowFirst提交锁(self):
+        global applyid
+        applyid = cd_exch(clientId, applyAmount)[0][0]
+        logging.info("查询数据库cd_exch查询到applyid的值为：{}".format(applyid))
+        print("查询数据库cd_exch查询到applyid的值为：{}".format(applyid))
+        time.sleep(8)
+        headers = {
+            "Accept": "application/json, text/javascript, */*; q=0.01",
+            "Connection": "keep-alive",
+            "Cookie": cookfront + token
+        }
+        logging.info("当前token为:{}".format(token))
+        print("当前token为:{}".format(token))
+        print("headers", headers)
+        operatingWorkFlowFirsturl = eddidhost + "/api/common/operatingWorkFlow"
+        print("submitAuditurl为:", operatingWorkFlowFirsturl)
+        logging.info("提交审核获取到的手机号为：{}".format(phone))
+        print("查询数据库cd_clnt_apply_info查询到applyId的值为：{}".format(applyid))
+        L=[]
+        L.append(str(applyid))
+        print("applyId::",L)
+        data = {
+            "applyIds":L,
+            "controlCode":"LOCK",
+            "workFlowCode":"exchangeApply"
+        }
+        print("data=", data)
+        operatingWorkFlowFirstResp = s.post(url=operatingWorkFlowFirsturl, headers=headers, json=data)
+        logging.info("步骤2提交审核接口'{}';请求参数为:{};响应结果为:'{}'".format(operatingWorkFlowFirsturl, data,
+                                                                operatingWorkFlowFirstResp.text))
+        print("步骤2提交审核接口'{}';请求参数为:{};响应结果为:'{}'".format(operatingWorkFlowFirsturl, data,
+                                                         operatingWorkFlowFirstResp.text))
+        return operatingWorkFlowFirstResp
+
     # 步骤2
     def auditExchange提交审核换汇申请单(self):
         # 设置等待时间
         print("等待系统录入数据后再提交审批，等待时间15s")
         logging.info("等待系统录入数据后再提交审批，等待时间15s")
         time.sleep(15)
-        applyid = cd_exch(clientId, applyAmount)[0][0]
+
         token = cdms_获取token()
         s = requests.Session()
         headers = {
@@ -91,10 +128,6 @@ class CreateExchange():
         auditExchangeurl = eddidhost + "/api/funds/auditExchange"
         print("auditExchangeurl为:", auditExchangeurl)
 
-        logging.info("查询数据库cd_exch查询到applyid的值为：{}".format(applyid))
-        # global applyId
-        # applyId = cd_clnt_apply_info(phone)
-        print("查询数据库cd_exch查询到applyid的值为：{}".format(applyid))
         data = {
             "applyId": applyid,
             "approvalResult": "PASS",
@@ -104,8 +137,8 @@ class CreateExchange():
         }
         print("data=", data)
         auditExchangeResp = s.post(url=auditExchangeurl, headers=headers, json=data)
-        logging.info("步骤2提交审核接口'{}';请求参数为:{};响应结果为:'{}'".format(auditExchangeurl, data, auditExchangeResp.text))
-        print("步骤2提交审核接口'{}';请求参数为:{};响应结果为:'{}'".format(auditExchangeurl, data, auditExchangeResp.text))
+        logging.info("步骤3提交审核接口'{}';请求参数为:{};响应结果为:'{}'".format(auditExchangeurl, data, auditExchangeResp.text))
+        print("步骤3提交审核接口'{}';请求参数为:{};响应结果为:'{}'".format(auditExchangeurl, data, auditExchangeResp.text))
         return auditExchangeResp
 
     def SQLCheckexchorder(self):
@@ -125,5 +158,7 @@ if __name__ == "__main__":
         # 实例化CreatUser
         print("步骤1：", CreateExchange.createExchange创建换汇申请单().text)
         time.sleep(6)
-        print("步骤2：", CreateExchange.auditExchange提交审核换汇申请单().text)
+        print("步骤2：", CreateExchange.operatingWorkFlowFirst提交锁().text)
         time.sleep(6)
+        print("步骤3：", CreateExchange.auditExchange提交审核换汇申请单().text)
+        # time.sleep(6)

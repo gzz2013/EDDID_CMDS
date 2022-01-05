@@ -46,9 +46,6 @@ class Test_Submit_mrktdat行情提交及审核(unittest.TestCase):
         logging.info("已执行用例03，数据库校验已完成")
         print("已执行用例03===============================================================")
 
-
-
-
     def tearDown(self):
         a = 3
         time.sleep(a)

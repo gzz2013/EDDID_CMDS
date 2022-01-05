@@ -18,6 +18,7 @@ class CreatEquitiesDeposit入金():
         s = requests.Session()
         # Randoms实例化
         clientId = 100861
+        accountCategory=1008611230
         # clientId = Randoms().choice_clientId()
         # accountId因clientId而变化
         # if clientId == 11431:

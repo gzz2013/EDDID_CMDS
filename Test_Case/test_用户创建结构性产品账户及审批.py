@@ -15,7 +15,7 @@ class Test_creatUser没有结构性产品账号及申请结构性产品审批(un
     def test_01_applyClient用户资料提交用例校验(self):
         applyClient = self.creatUser.ApplyClinet资料提交()
         self.assertEqual(200, applyClient.status_code)
-        self.assertEqual("OK", applyClient.json().get("msg"))
+        self.assertIn(applyClient.json().get("msg"),"操作成功，OK")
         print("已执行用例1===============================================================")
 
     def test_02_submitAudit提交审核(self):

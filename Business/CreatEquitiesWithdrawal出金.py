@@ -9,12 +9,32 @@ from Common.data_文本读写 import *
 
 class CreatEquitiesWithdrawal出金():
 
-    def createWithdrawal创建出金单(self):
-        global clientId, withdrawalAmount, eddidhost, token, s
-        eddidhost = url
-        # token=data_read('F:\\python\\EDDID_CDMS\\Data\\token.txt')
+
+    def getClientInfoByClientId查询交易账号账号类型(self,clientId):
+        global s,token
         token = cdms_获取token()
         s = requests.Session()
+
+        getClienturl = eddidhost + "/api/funds/createWithdrawal"
+        headers = {
+            "Accept": "application/json, text/javascript, */*; q=0.01",
+            "Connection": "keep-alive",
+            "Cookie": "LANGUAGE=zh_CN;GB-SYS-SID-SIT=" + token
+        }
+        data={
+            "clientId":clientId
+        }
+        getClientResp = s.post(url=getClienturl, headers=headers, json=data).text
+        return getClientResp
+
+
+
+    def createWithdrawal创建出金单(self):
+        global clientId, withdrawalAmount, eddidhost
+        eddidhost = url
+        # token=data_read('F:\\python\\EDDID_CDMS\\Data\\token.txt')
+
+
         # Randoms实例化
         # clientId = Randoms().choice_clientId()
         # clientId=11431

@@ -5,7 +5,7 @@ import logging
 import time
 from Common.com_sql.eddid_data_select import *
 from Config.cdms_config import *
-from Common.data_文本读写 import *
+from Common.check_accts import *
 
 
 class CreatEquitiesDeposit入金():
@@ -18,7 +18,12 @@ class CreatEquitiesDeposit入金():
         s = requests.Session()
         # Randoms实例化
         clientId = 100861
-        accountCategory=1008611230
+        # 客户交易账号
+        accountId = int(str(clientId) + '1230')
+        # print("accountId",type(accountId),accountId)
+        # 根据交易账号查询账号类型
+        Category = accountCategory(accountId)[0]
+        # print("accountId", type(accountId), accountId)
         # clientId = Randoms().choice_clientId()
         # accountId因clientId而变化
         # if clientId == 11431:
@@ -47,8 +52,8 @@ class CreatEquitiesDeposit入金():
             "remittanceBankCard": "32323232",
             "sibMobile": 'null',
             "depositAmount": depositAmount,
-            "accountId": "1008611230",
-            "accountCategory": "securitiesCash",
+            "accountId": accountId,
+            "accountCategory": Category,
             "remittanceBankCode": "003",
             "beneficiaryBankCode": "012",
             "beneficiaryBankName": "中国银行（香港）有限公司",
@@ -195,7 +200,7 @@ class CreatEquitiesDeposit入金():
             auditDepositToResp = s.post(url=auditDepositTourl, headers=headers, json=data)
             logging.info("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
             print("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
-            return auditDepositToResp
+            # return auditDepositToResp
         # 如果是系统处理失败
         else:
             time.sleep(15)
@@ -239,7 +244,13 @@ class CreatEquitiesDeposit入金():
             auditDepositToResp = s.post(url=auditDepositTourl, headers=headers, json=data)
             logging.info("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
             print("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
-            return auditDepositToResp
+            # return auditDepositToResp
+        #对于任意一种请求都不在校验接口请求结果，直接查询数据库
+        sqlauditDepositTo=gs_wrkflw_log(applyId)[0]
+
+        logging.info("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
+        print("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
+        return sqlauditDepositTo
 
 
 if __name__ == "__main__":

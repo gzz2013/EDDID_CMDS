@@ -5,18 +5,23 @@ import logging
 import time
 from Common.com_sql.eddid_data_select import *
 from Config.cdms_config import *
-from Common.data_文本读写 import *
+from Common.check_accts import *
 
 class CreatEquitiesDeposit大额入金():
 
     def createDeposit创建入金单(self):
-        global clientId, depositAmount, eddidhost, token, s
+        global clientId, depositAmount, eddidhost, token, s,accountCategory
         eddidhost = url
-        # token=data_read('F:\\python\\EDDID_CDMS\\Data\\token.txt')
         token = cdms_获取token()
         s = requests.Session()
         # Randoms实例化
+        #客户账号
         clientId = 11431
+        #客户交易账号
+        accountId=int(str(clientId)+'1110')
+        # print("accountId",type(accountId),accountId)
+        #根据交易账号查询账号类型
+        Category=accountCategory(accountId)[0]
         depositAmount = Randoms().randomlargeAmount()
         headers = {
             "Accept": "application/json, text/javascript, */*; q=0.01",
@@ -36,8 +41,8 @@ class CreatEquitiesDeposit大额入金():
             "remittanceBankCard": "32323232",
             "sibMobile": 'null',
             "depositAmount": depositAmount,
-            "accountId": "114311110",
-            "accountCategory": "securitiesCash",
+            "accountId": accountId,
+            "accountCategory": Category,
             "remittanceBankCode": "003",
             "beneficiaryBankCode": "012",
             "beneficiaryBankName": "中国银行（香港）有限公司",
@@ -236,7 +241,7 @@ class CreatEquitiesDeposit大额入金():
             auditDepositToResp = s.post(url=auditDepositTourl, headers=headers, json=data)
             logging.info("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
             print("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
-            return auditDepositToResp
+            # return auditDepositToResp
         else:
             time.sleep(30)
             headers = {
@@ -275,7 +280,12 @@ class CreatEquitiesDeposit大额入金():
             auditDepositToResp = s.post(url=auditDepositTourl, headers=headers, json=data)
             logging.info("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
             print("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
-            return auditDepositToResp
+            # return auditDepositToResp
+        sqlauditDepositTo=gs_wrkflw_log(applyId)[0]
+
+        logging.info("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
+        print("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
+        return sqlauditDepositTo
 
 
 if __name__ == "__main__":
@@ -288,9 +298,5 @@ if __name__ == "__main__":
         print("=====================================步骤2：", CreatDeposit.operatingWorkFlowNo().text)
         time.sleep(10)
         print("=====================================步骤3：", CreatDeposit.auditDepositNo().text)
-        # time.sleep(10)
-        # print("=====================================步骤4：", CreatDeposit.operatingWorkFlowTo().text)
-        # time.sleep(10)
-        # print("=====================================步骤5：", CreatDeposit.auditDeposit_comp_p().text)
         time.sleep(10)
-        print("=====================================步骤4：", CreatDeposit.get_current_state_deposit().text)
+        print("=====================================步骤4：", CreatDeposit.get_current_state_deposit())

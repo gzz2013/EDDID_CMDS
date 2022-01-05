@@ -9,21 +9,48 @@ import time
 from Common.com_sql.eddid_data_select import *
 from Config.cdms_config import *
 from Common.data_文本读写 import *
+from Common.check_accts import *
 
 
 class Creat_h5_deposit():
 
+    # def gettradeAccountType(self):
+    #     global tokenh5,H5requests
+    #     tokenh5=h5_caccessToken()
+    #     H5requests=requests.Session()
+    #     headers = {
+    #         "accept": "application/json, text/plain, */*",
+    #         "authorization": "Bearer " + tokenh5,
+    #         "content-type": "application/json;charset=utf-8",
+    #         "accept-encoding": "gzip, deflate, br",
+    #     }
+    #     H5gettradeAccountTypeturl = app_base_url + "/open/account/eddid/info?platform=Web"
+    #     H5gettradeAccountTypetResp = H5requests.get(url=H5gettradeAccountTypeturl, headers=headers)
+    #     logging.info("步骤1提交接口'{}';的响应结果为:'{}'".format(H5gettradeAccountTypeturl, H5gettradeAccountTypetResp.text))
+    #     print("步骤1提交接口'{}';响应结果为:'{}'".format(H5gettradeAccountTypeturl, H5gettradeAccountTypetResp.text))
+    #     return H5gettradeAccountTypetResp
+
     # 步骤1,H5页面提交入金申请
     def H5submit_deposit(self):
-        global clientId, tanceAmount,ac_id
-        tokenh5 = h5_caccessToken()
+        global clientId, tanceAmount,ac_id,H5requests
+        #实例化requests
         H5requests = requests.Session()
+        #登录获取H5页面token
+        tokenh5 = h5_caccessToken()
+        #通过文本读取转账交易账号
         ac_id = datahandle(data_read('F:\\python\\EDDID_CDMS\\Data\\unableAcct.txt'))[0]
         clientId = datahandle(data_read('F:\\python\\EDDID_CDMS\\Data\\unableAcct.txt'))[1]
-        Accountinfro = cd_ac_id(ac_id)
-        tradeAccountType = Accountinfro[0][4] + "_" + Accountinfro[0][5]
+        #获取账号类型
+        tradeAccountType = accountCategory(ac_id)[1]
+        #生成开户银行账号
         tanceBankAccount = str(clientId) + "3546"
+        #随机生成转出金额
         tanceAmount = Randoms().randomAmount()
+        #指定币种
+        Currency='HKD'
+        #根据币种和交易账户确定艾德收款银行账号
+        bankAccountNumber=getbankAccountNumber(ac_id,Currency)
+        print("获取到的收款银行账号为:{}".format(bankAccountNumber))
         headers = {
             "accept": "application/json, text/plain, */*",
             "authorization": "Bearer " + tokenh5,
@@ -36,7 +63,7 @@ class Creat_h5_deposit():
         H5submitdepositurl = app_base_url + "/open/account/fund/deposit/application"
         print("H5submitmrktdaturl为：", H5submitdepositurl)
         data = {
-            "beneficiaryAccount":"016-478-000324487",
+            "beneficiaryAccount":bankAccountNumber,
             "depositImages":[
                 "4e70f72d-6ebc-48dd-abfb-d8e50723358e.jpg"
             ],
@@ -45,7 +72,7 @@ class Creat_h5_deposit():
             "remittanceBankAccount":tanceBankAccount,
             "remittanceBankCode":"024",
             "remittanceBankType":"OTHER",
-            "remittanceCurrency":"HKD",
+            "remittanceCurrency":Currency,
             "submitSource":"CP_H5",
             "tradeAccountNumber":ac_id,
             "tradeAccountType":tradeAccountType
@@ -239,6 +266,7 @@ class Creat_h5_deposit():
             print("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
             # return auditDepositToResp
 
+        #对于任意一种请求都不在校验接口请求结果，直接查询数据库
         sqlauditDepositTo=gs_wrkflw_log(applyId)[0]
 
         logging.info("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))

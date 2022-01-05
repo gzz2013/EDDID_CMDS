@@ -35,7 +35,6 @@ class Test_H5_DEPOSIT入金(unittest.TestCase):
         self.assertEqual("DONE_7", get_current_state_deposit[3])
         self.assertEqual("depositApply", get_current_state_deposit[8])
         self.assertEqual("入金申请", get_current_state_deposit[9])
-
         print("已执行用例4===============================================================")
 
     #

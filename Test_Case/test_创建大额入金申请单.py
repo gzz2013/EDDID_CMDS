@@ -31,9 +31,9 @@ class Test_CreatEquitiesDeposit大额入金(unittest.TestCase):
 
     def test_06_get_current_state_deposit(self):
         get_current_state_deposit = self.CreatEquitiesDeposit.get_current_state_deposit()
-        self.assertEqual(200, get_current_state_deposit.status_code)
-        self.assertEqual("操作成功", get_current_state_deposit.json().get("msg"))
-        # self.assertEqual("操作成功", get_current_state_deposit.json().get("data")[0].get("operatingMessage"))
+        self.assertEqual("DONE_7", get_current_state_deposit[3])
+        self.assertEqual("depositApply", get_current_state_deposit[8])
+        self.assertEqual("入金申请", get_current_state_deposit[9])
         print("已执行用例4===============================================================")
 
     #

@@ -204,6 +204,12 @@ class Randoms():
         rAmount=float(random.randint(10000,19999))+float('%.2f'%(random.random()))
         return rAmount
 
+    #生成随机转股数
+    def randomintNumber(self):
+        random.seed(time.time())
+        rAmount=int(random.randint(10,99))+int(random.randint(1,9))
+        return rAmount
+
     #生成邮箱
     # -*- coding:utf-8 -*-
     def RandomEmail(emailType=None, rang=None):
@@ -322,5 +328,7 @@ if __name__ == '__main__':
     print(Randoms().randomAmount())
     print(Randoms().randomlargeAmount())
     print(Randoms().choice_bankCode())
+    nb=Randoms().randomintNumber()
+    print("randomintNumber:",type(nb),nb)
 
 # 42 9004 19940327 117 5

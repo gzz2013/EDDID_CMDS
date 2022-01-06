@@ -123,6 +123,20 @@ def  gs_mrktdat_sub(clnt_id):
                                      sql="select * from gs_mrktdat_sub WHERE clnt_id={} ORDER BY init_time DESC LIMIT 1 ".format(clnt_id))
     return gs_mrktdat_sub
 
+
+#转股申请查询
+def cd_clnt_equity_swap(ac_id):
+    cd_clnt_equity_swap = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="select * from cd_clnt_equity_swap WHERE ac_id={} ORDER BY init_time DESC LIMIT 1 ".format(ac_id))
+    return cd_clnt_equity_swap
+
+#通过申请单的id查询转股数
+def  cd_clnt_equity_swap_item(equity_swap_id):
+    cd_clnt_equity_swap_item = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="select * from cd_clnt_equity_swap_item WHERE equity_swap_id={} ORDER BY init_time DESC LIMIT 1 ".format(equity_swap_id))
+    return cd_clnt_equity_swap_item
+
+
 if __name__=="__main__":
     # a=cd_ac('NORMAL','CASH','EQUITIES',11431)
     # print(a)
@@ -146,5 +160,8 @@ if __name__=="__main__":
     # print("cd_clnt_bank_ac_apply:", cd_clnt_bank_ac_apply(501015))
     # print("cd_clnt_bank_ac:", cd_clnt_bank_ac(501015))
     print("gs_mrktdat_sub:", gs_mrktdat_sub(500602))
+
+    print("cd_clnt_equity_swap:", cd_clnt_equity_swap(114311110))
+    print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
 
 

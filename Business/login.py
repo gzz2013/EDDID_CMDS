@@ -7,6 +7,7 @@ from Config.cdms_config import *
 
 # 运营人员登录获取token
 def cdms_获取token():
+
     logins = requests.Session()
     # 登录访问的接口
     loginurl = url + "/api/auth/login"

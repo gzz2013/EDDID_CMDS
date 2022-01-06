@@ -5,50 +5,18 @@ import logging
 import time
 from Common.com_sql.eddid_data_select import *
 from Config.cdms_config import *
-from Common.data_文本读写 import *
+from Common.check_accts import *
 
 class CreatEquitiesWithdrawal出金():
 
-
-    # def getClientInfoByClientId查询交易账号账号类型(self,clientId):
-    #     global s,token
-    #     token = cdms_获取token()
-    #     s = requests.Session()
-    #
-    #     getClienturl = eddidhost + "/api/funds/createWithdrawal"
-    #     headers = {
-    #         "Accept": "application/json, text/javascript, */*; q=0.01",
-    #         "Connection": "keep-alive",
-    #         "Cookie": "LANGUAGE=zh_CN;GB-SYS-SID-SIT=" + token
-    #     }
-    #     data={
-    #         "clientId":clientId
-    #     }
-    #     getClientResp = s.post(url=getClienturl, headers=headers, json=data).text
-    #     return getClientResp
-
-
-
     def createWithdrawal创建出金单(self):
-        global clientId, withdrawalAmount, eddidhost,token
+        global clientId, withdrawalAmount, eddidhost,token,s
         eddidhost = url
-        # token=data_read('F:\\python\\EDDID_CDMS\\Data\\token.txt')
-
         token = cdms_获取token()
         s = requests.Session()
-
-        # Randoms实例化
-        # clientId = Randoms().choice_clientId()
-        # clientId=11431
-        clientId = 12071
-        # accountId=120711110
-        # accountId因cli
-        # entId而变化
-        if clientId == 11431:
-            # 证券现金账户
-            accountId = 114311110
-        else:
-            accountId = 120711110
+        clientId=11431
+        accountId = 114311110
+        Category = accountCategory(accountId)[0]
         print("================================获取到clientId为：{}，accountId为：{}".format(clientId, accountId))
         withdrawalAmount = Randoms().randomAmount()
         headers = {
@@ -61,24 +29,24 @@ class CreatEquitiesWithdrawal出金():
         print("headers", headers)
         createWithdrawalurl = eddidhost + "/api/funds/createWithdrawal"
         print("createWithdrawalurl:", createWithdrawalurl)
-        # logging.info("提交出金申请单时{}".format(createWithdrawalurl))
-        data = {
-            "clientId": clientId,
-            "actualAmountCurrency": "HKD",
-            "withdrawalAmount": withdrawalAmount,
-            # "accountId":"120711110",
-            "accountId": accountId,
-            "accountCategory": "securitiesCash",
-            "clientBankAccountId": "1356",
-            "withdrawalType": "LOCAL",
-            "applySource": 4,
-            "fileList": [
-                "/hzlc_20211025162042.jpg"
+        data={
+            "clientId":clientId,
+            "actualAmountCurrency":"HKD",
+            "withdrawalAmount":withdrawalAmount,
+            "accountId":accountId,
+            "accountCategory":Category,
+            "clientBankAccountId":"1273",
+            "withdrawalType":"LOCAL",
+            "applySource":4,
+            "fileList":[
+                "/hzlc_20220106091854.jpg"
             ],
-            "serviceCurrency": "HKD",
-            "serviceCharge": 0,
-            "actualAmount": withdrawalAmount,
-            "feeList": []
+            "serviceCurrency":"HKD",
+            "serviceCharge":0,
+            "actualAmount":withdrawalAmount,
+            "feeList":[
+
+            ]
         }
         createWithdrawalResp = s.post(url=createWithdrawalurl, headers=headers, json=data)
         logging.info("步骤1接口'{}';请求参数为:{};响应结果为：'{}'".format(createWithdrawalurl, data, createWithdrawalResp.text))
@@ -98,7 +66,6 @@ class CreatEquitiesWithdrawal出金():
         print("headers", headers)
         operatingWorkFlowurl = eddidhost + "/api/common/operatingWorkFlow"
         print("applyClienturl:", operatingWorkFlowurl)
-        # logging.info("提交申请单时注册用户手机号码为：{}".format(clientId))
         data = {
             "applyId": applyId,
             "workFlowCode": "withdrawalApply",

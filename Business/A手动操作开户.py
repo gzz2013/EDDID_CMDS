@@ -15,30 +15,30 @@ class CreatUser():
     def ApplyClinet资料提交(self):
         global phone, token, eddidhost, s, cremail, rfirstName, rlastName, rchName, idCardNo, cookfront
         # 生成电话号
-        # phone = Randoms().telephone()
+        phone = Randoms().telephone()
         # print("phone数据类型************************************************",type(phone))
-        phone = "96702382"
+        # phone = "96702382"
         # 生成新邮箱
         # cremail = Randoms.RandomEmail()
-        cremail="felix.man@eddid.com.hk"
+        cremail="enquiry@eddid.com"
         # 英文名firstName
-        # rfirstName = Randoms().creat_EFName()
-        rfirstName = "Felix"
+        rfirstName = Randoms().creat_EFName()
+        # rfirstName = "Felix"
         # 英文姓lastName
-        # rlastName = Randoms().creat_ELName()
-        rlastName = "Felix"
+        rlastName = Randoms().creat_ELName()
+        # rlastName = "Felix"
         # 中文名chName
-        # rchName = Randoms().creat_CHName()
-        rchName = "Felix"
+        rchName = Randoms().creat_CHName()
+        # rchName = "Felix"
         # 生成身份证号
-        # idCardNo = Randoms().ident_generator()
-        idCardNo=" D235607(5)"
+        idCardNo = Randoms().ident_generator()
+        # idCardNo=" D235607(5)"
         # 国籍
         # cantrCode = "CHN"
         cantrCode = "HKG"
         # cantrCode ="MYS"
         # 身份证类型 香港为"1" 大陆为"2"
-        idCardT = "1"
+        idCardT = "2"
         # cookies的前缀
         cookfront = cookfr
         # 生成称谓（性别）
@@ -230,18 +230,18 @@ class CreatUser():
             "bankCardNo": "",
             "elecNo": "",
             "responsible": "kwokwah.wong",
-            # "emailLanguage": Language,
+            "emailLanguage": Language,
             # "emailLanguage": "zh-hans",
             # 简体
-            "emailLanguage": "zh-hant",
+            # "emailLanguage": "zh-hant",
             # 繁体
             "accts": [
-                # caccts
+                caccts
                 # "securitiesCash",
                 # 证券现金
                 # "securitiesMargin",
                 # 证券保证金
-                "futuresMargin",
+                # "futuresMargin",
                 # 期货保证金
                 # "leveragedForeignExchangeAccountMargin",
                 # 杠杆式外汇账户(保证金)

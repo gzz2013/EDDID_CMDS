@@ -136,17 +136,25 @@ def  cd_clnt_equity_swap_item(equity_swap_id):
                                      sql="select * from cd_clnt_equity_swap_item WHERE equity_swap_id={} ORDER BY init_time DESC LIMIT 1 ".format(equity_swap_id))
     return cd_clnt_equity_swap_item
 
+#通过客户clnt_id查询最新的客户信息修改单
+def  cd_clnt_info_update_apply(clnt_id):
+    cd_clnt_info_updateapply = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="select * from cd_clnt_info_update_apply WHERE clnt_id={} ORDER BY init_time DESC LIMIT 1".format(clnt_id))
+    return cd_clnt_info_updateapply
+
+
+
 
 if __name__=="__main__":
     # a=cd_ac('NORMAL','CASH','EQUITIES',11431)
     # print(a)
-    print(cd_enty(10113278326))
+    # print(cd_enty(10113278326))
     # print("cd_enty:::",cd_enty(16847802102)[0][4])
-    # print("cd_clnt_apply_info:::",cd_clnt_apply_info(16847802102)[0][0])
-    # print("cd_enty2:::",cd_enty(16847802102)[0][0])
+    # print("cd_clnt_apply_info:::",cd_clnt_apply_info(19963480275)[0][0])
+    # print("cd_enty2:::",cd_enty(19963480275)[0])
     # print("cd_clnt_joint_enty:::",cd_clnt_joint_enty(cd_enty(16847802102)[0][0])[0][1])
     # print("cd_ac:::", cd_ac(cd_clnt_joint_enty(cd_enty(16847802102)[0][0])[0][1])[0][0])
-    print("cd_clnt:::", cd_clnt(500533)[0][3])
+    # print("cd_clnt:::", cd_clnt(500533)[0][3])
     # print("cd_ac:::1111",cd_ac(11431))
     # print("cd_withdrawal",cd_withdrawal(12071,14.45))
     # print("gs_wrkflw_log",gs_wrkflw_log(52155))
@@ -155,13 +163,15 @@ if __name__=="__main__":
     # print("cd_deposit++++++++++++++",cd_deposit(11431,46.41))
     # print("get_clnt_id:",get_clnt_id(13480701220)[0][1])
     # print("get_clnt_id:",get_clnt_id(13480701220))
-    print("cd_ac_id:",cd_ac_id(5010983210))
+    # print("cd_ac_id:",cd_ac_id(5010983210))
     # print("cd_ac_trading_apply:",cd_ac_trading_apply(88060))
     # print("cd_clnt_bank_ac_apply:", cd_clnt_bank_ac_apply(501015))
     # print("cd_clnt_bank_ac:", cd_clnt_bank_ac(501015))
-    print("gs_mrktdat_sub:", gs_mrktdat_sub(500602))
+    # print("gs_mrktdat_sub:", gs_mrktdat_sub(500602))
 
-    print("cd_clnt_equity_swap:", cd_clnt_equity_swap(114311110))
-    print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
+    # print("cd_clnt_equity_swap:", cd_clnt_equity_swap(114311110))
+    # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
+    print("cd_clnt_info_update_apply:", cd_clnt_info_update_apply(501152))
+
 
 

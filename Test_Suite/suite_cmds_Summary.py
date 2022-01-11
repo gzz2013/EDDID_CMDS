@@ -13,8 +13,9 @@ from Test_Case.test_用户创建结构性产品账户及审批 import Test_creat
 from Test_Case.test_createClientBankApply import Test_CreateClientBank添加银行卡
 from Test_Case.test_closeAcct账号关闭 import Test_closeAcct账号关闭
 from Test_Case.test_mrktdat_sub行情申请_1229 import Test_Submit_mrktdat行情提交及审核
-from Test_Case.test_h5_deposit_1230 import Test_H5_DEPOSIT入金
+from Test_Case.test_h5_deposit入金_1230 import Test_H5_DEPOSIT入金
 from Test_Case.test_SwapEquity转股_0106 import Test_SwapEquity转股
+from Test_Case.test_updateClientInfo修改客户资料及审批_0111 import Test_UpdateClientInfo修改用户资料及审批
 
 def get_suite_creatUser新建用户后停用():
     loader=unittest.TestLoader()
@@ -104,4 +105,11 @@ def get_suite_SwapEquity转股():
     loader=unittest.TestLoader()
     suite=unittest.TestSuite()
     suite.addTests(loader.loadTestsFromTestCase(Test_SwapEquity转股))
+    return suite
+
+
+def get_suite_UpdateClientInfo修改用户资料及审批():
+    loader=unittest.TestLoader()
+    suite=unittest.TestSuite()
+    suite.addTests(loader.loadTestsFromTestCase(Test_UpdateClientInfo修改用户资料及审批))
     return suite

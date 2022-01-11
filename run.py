@@ -26,8 +26,8 @@ suite.addTests(get_suite_CreatUser创建其他类型交易账号())
 suite.addTests(get_suite_CreateClientBank添加银行卡())
 suite.addTests(get_suite_Creat_mrktdat_sub())
 suite.addTests(get_suite_Creat_deposit_sub())
-suite.addTests(get_suite_SwapEquity转股())
-
+# suite.addTests(get_suite_SwapEquity转股())
+suite.addTests(get_suite_UpdateClientInfo修改用户资料及审批())
 
 if __name__ == '__main__':
     HTMLReport.TestRunner(

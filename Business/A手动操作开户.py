@@ -17,28 +17,28 @@ class CreatUser():
         # 生成电话号
         phone = Randoms().telephone()
         # print("phone数据类型************************************************",type(phone))
-        # phone = "96702382"
+        # phone = "69335692"
         # 生成新邮箱
-        # cremail = Randoms.RandomEmail()
-        cremail="enquiry@eddid.com"
+        cremail = Randoms.RandomEmail()
+        # cremail="sheldon.yuen@eddidfintech.com"
         # 英文名firstName
         rfirstName = Randoms().creat_EFName()
-        # rfirstName = "Felix"
+        # rfirstName = "Sheldon"
         # 英文姓lastName
         rlastName = Randoms().creat_ELName()
-        # rlastName = "Felix"
+        # rlastName = "Yuen"
         # 中文名chName
         rchName = Randoms().creat_CHName()
-        # rchName = "Felix"
+        # rchName = "Sheldon Yuen"
         # 生成身份证号
         idCardNo = Randoms().ident_generator()
-        # idCardNo=" D235607(5)"
+        # idCardNo=" D235687(5)"
         # 国籍
         # cantrCode = "CHN"
         cantrCode = "HKG"
         # cantrCode ="MYS"
         # 身份证类型 香港为"1" 大陆为"2"
-        idCardT = "2"
+        idCardT = "1"
         # cookies的前缀
         cookfront = cookfr
         # 生成称谓（性别）
@@ -230,20 +230,20 @@ class CreatUser():
             "bankCardNo": "",
             "elecNo": "",
             "responsible": "kwokwah.wong",
-            "emailLanguage": Language,
+            # "emailLanguage": Language,
             # "emailLanguage": "zh-hans",
             # 简体
-            # "emailLanguage": "zh-hant",
+            "emailLanguage": "zh-hant",
             # 繁体
             "accts": [
-                caccts
-                # "securitiesCash",
+                # caccts
+                "securitiesCash",
                 # 证券现金
                 # "securitiesMargin",
                 # 证券保证金
-                # "futuresMargin",
+                "futuresMargin",
                 # 期货保证金
-                # "leveragedForeignExchangeAccountMargin",
+                "leveragedForeignExchangeAccountMargin",
                 # 杠杆式外汇账户(保证金)
                 # "securitiesAyersCash"
                 # #全权委托证券（现金）账户

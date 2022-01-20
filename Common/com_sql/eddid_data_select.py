@@ -136,11 +136,26 @@ def  cd_clnt_equity_swap_item(equity_swap_id):
                                      sql="select * from cd_clnt_equity_swap_item WHERE equity_swap_id={} ORDER BY init_time DESC LIMIT 1 ".format(equity_swap_id))
     return cd_clnt_equity_swap_item
 
-#通过客户clnt_id查询最新的客户信息修改单
+#通过客户clnt_id查询最新的客户信息修改申请单
 def  cd_clnt_info_update_apply(clnt_id):
     cd_clnt_info_updateapply = SQL_Check.eddid_gfss_sit(database=sqldata,
                                      sql="select * from cd_clnt_info_update_apply WHERE clnt_id={} ORDER BY init_time DESC LIMIT 1".format(clnt_id))
     return cd_clnt_info_updateapply
+
+
+#通过客户clnt_id查询最新银行子账号申请单
+def  cd_clnt_bank_sub_acct_apply(clnt_id):
+    cd_clnt_bank_subacctapply = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="SELECT * FROM cd_clnt_bank_sub_acct_apply WHERE clnt_id={} ORDER BY init_time DESC LIMIT 1".format(clnt_id))
+    return cd_clnt_bank_subacctapply
+
+
+#通过客户clnt_id查询开户银行子账户
+def  cd_clnt_bank_sub_acct(clnt_id):
+    cd_clnt_bank_subacct = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="SELECT * FROM cd_clnt_bank_sub_acct WHERE clnt_id={} ORDER BY init_time DESC LIMIT 1".format(clnt_id))
+    return cd_clnt_bank_subacct
+
 
 
 
@@ -171,7 +186,9 @@ if __name__=="__main__":
 
     # print("cd_clnt_equity_swap:", cd_clnt_equity_swap(114311110))
     # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
-    print("cd_clnt_info_update_apply:", cd_clnt_info_update_apply(501152))
+    print("cd_clnt_bank_sub_acct_apply:", cd_clnt_bank_sub_acct_apply(501176))
+    # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
+
 
 
 

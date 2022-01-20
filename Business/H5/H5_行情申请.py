@@ -48,8 +48,7 @@ class Creat_mrktdat_sub():
 
     def operatingWorkFlow提交锁(self):
 
-        global token_web, eddidhost,wbes, cookfront,clnt_id,applyId
-        time.sleep(7)
+        global token_web, eddidhost,wbes, cookfront,clnt_id,applyId,headers
         clnt_id=datahandle(data_read('F:\\python\\EDDID_CDMS\\Data\\unableAcct.txt'))
 
         eddidhost=url
@@ -87,15 +86,6 @@ class Creat_mrktdat_sub():
 
     def auditRtqSubscptn审批(self):
 
-        time.sleep(4)
-        headers = {
-            "Accept": "application/json, text/javascript, */*; q=0.01",
-            "Connection": "keep-alive",
-            "Cookie": cookfront + token_web
-        }
-        logging.info("当前token为:{}".format(token_web))
-        print("当前token为:{}".format(token_web))
-        print("headers", headers)
         auditRtqSubscptnurl = eddidhost + "/api/acct/auditRtqSubscptn"
         print("operatingWorkFlowturl为:", auditRtqSubscptnurl)
 
@@ -125,5 +115,8 @@ class Creat_mrktdat_sub():
 if __name__ == "__main__":
     c=Creat_mrktdat_sub()
     print("步骤1，H5行情申请提交", c.H5submit_mrktdat().text)
+    time.sleep(4)
     print("步骤2，web提交锁", c.operatingWorkFlow提交锁().text)
+    time.sleep(4)
     print("步骤3，web提审核", c.auditRtqSubscptn审批().text)
+    time.sleep(4)

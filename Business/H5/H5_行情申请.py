@@ -53,7 +53,7 @@ class Creat_mrktdat_sub():
 
         eddidhost=url
         cookfront = cookfr
-        applyId=gs_mrktdat_sub(clnt_id[1])[0][0]
+        applyId=gs_mrktdat_sub(int(clnt_id[1]))[0][0]
         token_web = cdms_获取token()
         wbes = requests.Session()
 

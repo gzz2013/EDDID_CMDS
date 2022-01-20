@@ -195,7 +195,7 @@ class Randoms():
     #生成随机金额
     def randomAmount(self):
         random.seed(time.time())
-        rAmount=float(random.randint(0,10))+float('%.2f'%(random.random()))
+        rAmount=float(random.randint(2,10))+float('%.2f'%(random.random()))
         return rAmount
 
     #生成随机金额

@@ -15,7 +15,6 @@ suite = unittest.TestSuite()
 suite.addTests(get_suite_creatUser新建用户())
 suite.addTests(get_suite_CreateExchange新建换汇申请单())
 suite.addTests(get_suite_creatUser没有结构性产品账号及申请结构性产品审批())
-# suite.addTests(get_suite_CreatEquitiesWithdrawal出金())
 suite.addTests(get_suite_CreatEquitiesDeposit入金())
 suite.addTests(get_suite_CreatEquitiesDeposit大额入金())
 suite.addTests(get_suite_creatUser新建所有类型用户())
@@ -29,6 +28,7 @@ suite.addTests(get_suite_Creat_deposit_sub())
 suite.addTests(get_suite_SwapEquity转股())
 suite.addTests(get_suite_UpdateClientInfo修改用户资料及审批())
 suite.addTests(get_suite_Subaccount银行子账号申请及审核())
+suite.addTests(get_suite_CreatEquitiesWithdrawalnew出金())
 
 if __name__ == '__main__':
     HTMLReport.TestRunner(

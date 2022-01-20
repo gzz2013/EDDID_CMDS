@@ -79,6 +79,11 @@ def  gs_wrkflw_log(apply_id):
     return gs_wrkflw_log
 
 
+def  gs_apply_work_flow(apply_id):
+    gs_apply_work_flow = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="select * from gs_apply_work_flow where apply_id={} ORDER BY init_time DESC  limit 1;".format(apply_id))
+    return gs_apply_work_flow
+
 #获取当前最新的汇率
 def  get_newrate():
     gs_wrkflw_log=SQL_Check.eddid_gfss_sit(database=sqldata,
@@ -171,8 +176,9 @@ if __name__=="__main__":
     # print("cd_ac:::", cd_ac(cd_clnt_joint_enty(cd_enty(16847802102)[0][0])[0][1])[0][0])
     # print("cd_clnt:::", cd_clnt(500533)[0][3])
     # print("cd_ac:::1111",cd_ac(11431))
-    # print("cd_withdrawal",cd_withdrawal(12071,14.45))
-    # print("gs_wrkflw_log",gs_wrkflw_log(52155))
+    print("cd_withdrawal",cd_withdrawal(11431,2.17))
+    apply_id=51700
+    print("gs_wrkflw_log：入参{}，结果{}".format(apply_id,gs_wrkflw_log(apply_id)))
     # print("gs_wrkflw_log",gs_wrkflw_log(52154))
     # print("get_newrate",get_newrate())
     # print("cd_deposit++++++++++++++",cd_deposit(11431,46.41))
@@ -186,7 +192,7 @@ if __name__=="__main__":
 
     # print("cd_clnt_equity_swap:", cd_clnt_equity_swap(114311110))
     # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
-    print("cd_clnt_bank_sub_acct_apply:", cd_clnt_bank_sub_acct_apply(501176))
+    # print("cd_clnt_bank_sub_acct_apply:", cd_clnt_bank_sub_acct_apply(501176))
     # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
 
 

@@ -14,10 +14,10 @@ class CreatEquitiesWithdrawal出金():
         eddidhost = url
         token = cdms_获取token()
         s = requests.Session()
-        clientId=88659
-        accountId = 886591280
-        # clientId=11431
-        # accountId =114313210
+        # clientId=88659
+        # accountId = 886591280
+        clientId=11431
+        accountId =114313210
         Category = accountCategory(accountId)[0]
         print("================================获取到clientId为：{}，accountId为：{}".format(clientId, accountId))
         withdrawalAmount = Randoms().randomAmount()

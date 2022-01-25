@@ -17,7 +17,7 @@ from Test_Case.test_h5_deposit入金_1230 import Test_H5_DEPOSIT入金
 from Test_Case.test_SwapEquity转股_0106 import Test_SwapEquity转股
 from Test_Case.test_updateClientInfo修改客户资料及审批_0111 import Test_UpdateClientInfo修改用户资料及审批
 from Test_Case.test_h5_sub银行子账号申请_0119 import Test_sub_account_银行子账号申请及审核
-from Test_Case.test_Nen出金申请及审批_0120 import Test_CreatEquitiesWithdrawalNen出金
+from Test_Case.test_Nen出金申请及审批_0120 import Test_CreatEquitiesWithdrawalNew出金
 
 def get_suite_creatUser新建用户后停用():
     loader=unittest.TestLoader()
@@ -125,5 +125,5 @@ def get_suite_Subaccount银行子账号申请及审核():
 def get_suite_CreatEquitiesWithdrawalnew出金():
     loader=unittest.TestLoader()
     suite=unittest.TestSuite()
-    suite.addTests(loader.loadTestsFromTestCase(Test_CreatEquitiesWithdrawalNen出金))
+    suite.addTests(loader.loadTestsFromTestCase(Test_CreatEquitiesWithdrawalNew出金))
     return suite

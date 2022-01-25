@@ -5,7 +5,7 @@ from Business.CreatEquitiesWithdrawalnew出金 import CreatEquitiesWithdrawal出
 from Common.data_文本读写 import *
 #2021年12月30日13:56:22
 
-class Test_CreatEquitiesWithdrawalNen出金(unittest.TestCase):
+class Test_CreatEquitiesWithdrawalNew出金(unittest.TestCase):
 
     def setUp(self):
         self.CreatEquitiesWithdrawal = CreatEquitiesWithdrawal出金()

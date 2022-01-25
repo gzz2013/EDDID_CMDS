@@ -25,10 +25,15 @@ suite.addTests(get_suite_CreatUser创建其他类型交易账号())
 suite.addTests(get_suite_CreateClientBank添加银行卡())
 suite.addTests(get_suite_Creat_mrktdat_sub())
 suite.addTests(get_suite_Creat_deposit_sub())
-suite.addTests(get_suite_SwapEquity转股())
 suite.addTests(get_suite_UpdateClientInfo修改用户资料及审批())
 suite.addTests(get_suite_Subaccount银行子账号申请及审核())
-suite.addTests(get_suite_CreatEquitiesWithdrawalnew出金())
+
+#####出金流程已变动
+# suite.addTests(get_suite_CreatEquitiesWithdrawal出金())
+##调用第三方接口'获取股票信息异常'
+# suite.addTests(get_suite_SwapEquity转股())
+#####出金流程调试中
+# suite.addTests(get_suite_CreatEquitiesWithdrawalnew出金())
 
 if __name__ == '__main__':
     HTMLReport.TestRunner(

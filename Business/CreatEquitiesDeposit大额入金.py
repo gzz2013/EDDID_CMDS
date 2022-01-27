@@ -122,8 +122,6 @@ class CreatEquitiesDeposit大额入金():
         return auditDepositNoResp
 
     def operatingWorkFlowTo(self):
-        # global applyId
-        # applyId = cd_deposit(clientId,depositAmount)[0][0]
         headers = {
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "Connection": "keep-alive",
@@ -177,7 +175,7 @@ class CreatEquitiesDeposit大额入金():
 
     def get_current_state_deposit(self):
 
-        cstate = gs_wrkflw_log(applyId)[0][3]
+        cstate = gs_apply_work_flow(applyId)[0][3]
         print("数据库查询到当前流程状态cstate的值为{}".format(cstate))
         b = 20
         while cstate == "SYS_HANDLEING_7":
@@ -186,7 +184,7 @@ class CreatEquitiesDeposit大额入金():
             # a = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
             print("当前状态为：系统处理中，流程等待！当前时间为：{},剩余等待{}次！".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), b))
             logging.info("当前状态为：系统处理中，流程等待！当前时间为：{},剩余等待{}次！".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), b))
-            cstate = gs_wrkflw_log(applyId)[0][3]
+            cstate = gs_apply_work_flow(applyId)[0][3]
             print("数据库查询到当前流程状态cstate的值为{}".format(cstate))
             logging.info("数据库查询到当前流程状态cstate的值为{}".format(cstate))
             b -= 1
@@ -281,10 +279,10 @@ class CreatEquitiesDeposit大额入金():
             logging.info("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
             print("步骤4接口'{}';请求参数为:{};响应结果为：'{}'".format(auditDepositTourl, data, auditDepositToResp.text))
             # return auditDepositToResp
-        sqlauditDepositTo=gs_wrkflw_log(applyId)[0]
+        sqlauditDepositTo=gs_apply_work_flow(applyId)[0]
 
-        logging.info("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
-        print("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
+        logging.info("步骤4结束，查询到数据库gs_apply_work_flow,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
+        print("步骤4结束，查询到数据库gs_apply_work_flow,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
         return sqlauditDepositTo
 
 

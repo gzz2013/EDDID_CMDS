@@ -34,8 +34,8 @@ class Test_CreatEquitiesDeposit入金(unittest.TestCase):
     def test_04_get_current_state_deposit(self):
         get_current_state_deposit = self.CreatEquitiesDeposit.get_current_state_deposit()
         self.assertEqual("DONE_7", get_current_state_deposit[3])
-        self.assertEqual("depositApply", get_current_state_deposit[8])
-        self.assertEqual("入金申请", get_current_state_deposit[9])
+        self.assertEqual("depositApply", get_current_state_deposit[2])
+        self.assertEqual("N", get_current_state_deposit[4])
         print("已执行用例4===============================================================")
 
 

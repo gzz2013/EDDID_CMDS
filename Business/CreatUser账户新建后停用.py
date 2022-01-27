@@ -732,6 +732,7 @@ class CreatUser账户新建后停用():
         unableA.append(phone)
         unableA.append(rfirstName)
         unableA.append(rlastName)
+        unableA.append(idCardNo)
         data_write('F:\\python\\EDDID_CDMS\\Data\\unableAcct.txt', unableA)
         headers = {
             "Accept": "application/x-www-form-urlencoded, text/javascript, */*; q=0.01",

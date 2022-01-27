@@ -72,13 +72,13 @@ def  cd_deposit(clnt_id,dep_amt):
                                      sql="select * from cd_deposit where clnt_id={} and dep_amt={} ORDER BY init_time DESC  limit 1".format(clnt_id,dep_amt))
     return cd_deposit
 
-#查询当前流程状态
+#查询所有流程状态
 def  gs_wrkflw_log(apply_id):
     gs_wrkflw_log = SQL_Check.eddid_gfss_sit(database=sqldata,
                                      sql="select * from gs_wrkflw_log where apply_id={} ORDER BY init_time DESC  limit 1;".format(apply_id))
     return gs_wrkflw_log
 
-
+#查询当前流程状态
 def  gs_apply_work_flow(apply_id):
     gs_apply_work_flow = SQL_Check.eddid_gfss_sit(database=sqldata,
                                      sql="select * from gs_apply_work_flow where apply_id={} ORDER BY init_time DESC  limit 1;".format(apply_id))
@@ -128,7 +128,6 @@ def  gs_mrktdat_sub(clnt_id):
                                      sql="select * from gs_mrktdat_sub WHERE clnt_id={} ORDER BY init_time DESC LIMIT 1 ".format(clnt_id))
     return gs_mrktdat_sub
 
-
 #转股申请查询
 def cd_clnt_equity_swap(ac_id):
     cd_clnt_equity_swap = SQL_Check.eddid_gfss_sit(database=sqldata,
@@ -161,6 +160,12 @@ def  cd_clnt_bank_sub_acct(clnt_id):
                                      sql="SELECT * FROM cd_clnt_bank_sub_acct WHERE clnt_id={} ORDER BY init_time DESC LIMIT 1".format(clnt_id))
     return cd_clnt_bank_subacct
 
+#通过客户clnt_id查询EDDA签约状态
+def  cd_clnt_bank_ac_edda_apply(clnt_id):
+    cd_clnt_bank_ac_eddaapply = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="select * from cd_clnt_bank_ac_edda_apply where clnt_id={} ORDER BY init_time DESC limit 1".format(clnt_id))
+    return cd_clnt_bank_ac_eddaapply
+
 
 
 
@@ -176,9 +181,9 @@ if __name__=="__main__":
     # print("cd_ac:::", cd_ac(cd_clnt_joint_enty(cd_enty(16847802102)[0][0])[0][1])[0][0])
     # print("cd_clnt:::", cd_clnt(500533)[0][3])
     # print("cd_ac:::1111",cd_ac(11431))
-    print("cd_withdrawal",cd_withdrawal(11431,2.17))
-    apply_id=51700
-    print("gs_wrkflw_log：入参{}，结果{}".format(apply_id,gs_wrkflw_log(apply_id)))
+    # print("cd_withdrawal",cd_withdrawal(11431,2.17))
+    # apply_id=51700
+    # print("gs_wrkflw_log：入参{}，结果{}".format(apply_id,gs_wrkflw_log(apply_id)))
     # print("gs_wrkflw_log",gs_wrkflw_log(52154))
     # print("get_newrate",get_newrate())
     # print("cd_deposit++++++++++++++",cd_deposit(11431,46.41))
@@ -194,6 +199,8 @@ if __name__=="__main__":
     # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
     # print("cd_clnt_bank_sub_acct_apply:", cd_clnt_bank_sub_acct_apply(501176))
     # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
+    print("cd_clnt_bank_ac_edda_apply:", cd_clnt_bank_ac_edda_apply(501256)[0][27])
+
 
 
 

@@ -27,6 +27,8 @@ suite.addTests(get_suite_Creat_mrktdat_sub())
 suite.addTests(get_suite_Creat_deposit_sub())
 suite.addTests(get_suite_UpdateClientInfo修改用户资料及审批())
 suite.addTests(get_suite_Subaccount银行子账号申请及审核())
+suite.addTests(get_suite_Creat_H5_eDDAcontract())
+
 
 #####出金流程已变动
 # suite.addTests(get_suite_CreatEquitiesWithdrawal出金())

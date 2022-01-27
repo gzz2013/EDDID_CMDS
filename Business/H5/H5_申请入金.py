@@ -13,24 +13,6 @@ from Common.check_accts import *
 
 
 class Creat_h5_deposit():
-
-    # def gettradeAccountType(self):
-    #     global tokenh5,H5requests
-    #     tokenh5=h5_caccessToken()
-    #     H5requests=requests.Session()
-    #     headers = {
-    #         "accept": "application/json, text/plain, */*",
-    #         "authorization": "Bearer " + tokenh5,
-    #         "content-type": "application/json;charset=utf-8",
-    #         "accept-encoding": "gzip, deflate, br",
-    #     }
-    #     H5gettradeAccountTypeturl = app_base_url + "/open/account/eddid/info?platform=Web"
-    #     H5gettradeAccountTypetResp = H5requests.get(url=H5gettradeAccountTypeturl, headers=headers)
-    #     logging.info("步骤1提交接口'{}';的响应结果为:'{}'".format(H5gettradeAccountTypeturl, H5gettradeAccountTypetResp.text))
-    #     print("步骤1提交接口'{}';响应结果为:'{}'".format(H5gettradeAccountTypeturl, H5gettradeAccountTypetResp.text))
-    #     return H5gettradeAccountTypetResp
-
-    # 步骤1,H5页面提交入金申请
     def H5submit_deposit(self):
         global clientId, tanceAmount,ac_id,H5requests
         #实例化requests

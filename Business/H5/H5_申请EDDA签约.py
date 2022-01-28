@@ -134,7 +134,7 @@ class Creat_h5_eDDAcontract():
         check_bank_ac_eddaapplynew=cd_clnt_bank_ac_edda_apply(int(clientId))
         logging.info("步骤2结束，查询到数据库cd_clnt_bank_ac_edda_apply,入参{}，结果为{}".format(clientId,check_bank_ac_eddaapplynew))
         print("步骤2结束，查询到数据库cd_clnt_bank_ac_edda_apply,入参{}，结果为{}".format(clientId,check_bank_ac_eddaapplynew))
-        return check_bank_ac_eddaapply
+        return check_bank_ac_eddaapplynew
 
 
 if __name__ == "__main__":

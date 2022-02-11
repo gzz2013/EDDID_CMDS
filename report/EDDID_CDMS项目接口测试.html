@@ -241,8 +241,8 @@ tr {
 }
 </style>
     <script language="javascript" type="text/javascript">
-var chartData_cn = [[2, '#1c965b', '通过']];
-var chartData_en = [[2, '#1c965b', 'Passed']];
+var chartData_cn = [[1, '#1c965b', '通过'], [1, '#ff5722', '失败']];
+var chartData_en = [[1, '#1c965b', 'Passed'], [1, '#ff5722', 'Failed']];
 
 function addClass(e, c) {
   if (!isClass(e, c)) {
@@ -653,19 +653,19 @@ goChart(chartData_cn);
     <strong>
       <span class="lang-cn">启动时间：</span>
       <span class="lang-en">Start Time:</span>
-    </strong> 2022-01-28 09:08:43
+    </strong> 2022-02-11 11:35:17
   </p>
   <p class='attribute'>
     <strong>
       <span class="lang-cn">结束时间：</span>
       <span class="lang-en">End Time:</span>
-    </strong> 2022-01-28 09:10:30
+    </strong> 2022-02-11 11:35:38
   </p>
   <p class='attribute'>
     <strong>
       <span class="lang-cn">运行时长：</span>
       <span class="lang-en">Duration:</span>
-    </strong> 0:01:47.530858
+    </strong> 0:00:20.549983
   </p>
   <p class='attribute'>
     <strong>
@@ -675,9 +675,9 @@ goChart(chartData_cn);
     <span class="lang-cn">合计：</span>
     <span class="lang-en">Total:</span>2&nbsp;&nbsp;&nbsp;&nbsp;
     <span class="lang-cn">通过：</span>
-    <span class="lang-en">Passed:</span>2&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="lang-en">Passed:</span>1&nbsp;&nbsp;&nbsp;&nbsp;
     <span class="lang-cn">失败：</span>
-    <span class="lang-en">Failed:</span>0&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="lang-en">Failed:</span>1&nbsp;&nbsp;&nbsp;&nbsp;
     <span class="lang-cn">错误：</span>
     <span class="lang-en">Error:</span>0&nbsp;&nbsp;&nbsp;&nbsp;
     <span class="lang-cn">跳过：</span>
@@ -765,15 +765,15 @@ goChart(chartData_cn);
             <span class="lang-en">View</span>
         </th>
     </tr>
-    <tr class='passClass'>
+    <tr class='failClass'>
     <td>c1</td>
     <td>Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract</td>
     <td>2</td>
-    <td class="passCase">2</td>
-    <td class="failCase">0</td>
+    <td class="passCase">1</td>
+    <td class="failCase">1</td>
     <td class="errorCase">0</td>
     <td class="skipCase">0</td>
-    <td style="text-align:right;">100.00%</td>
+    <td style="text-align:right;">50.00%</td>
     <td>0</td>
     <td>
         <a href="javascript:showClassDetail('c1',2)">
@@ -782,36 +782,41 @@ goChart(chartData_cn);
         </a>
     </td>
 </tr>
-<tr id='pt1.1'>
-<td>pt1.1</td>
-    <td class='passCase' colspan='7'>
+<tr id='ft1.1'>
+<td>ft1.1</td>
+    <td class='failCase' colspan='7'>
         <div class='testcase'>test_01_H5_submit_eDDAcontract</div>
     </td>
-    <td class='passCase'>
+    <td class='failCase'>
         <div class='testcase' style="margin-left: auto;">0</div>
     </td>
-    <td class='passCase' align='center'>
-        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1.1',1, false)">
-            <span class="lang-cn">通过</span>
-            <span class="lang-en">pass</span>
+    <td class='failCase' align='center'>
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1.1',1, false)">
+            <span class="lang-cn">失败</span>
+            <span class="lang-en">fail</span>
         </a>
     </td>
 </tr>
-<tr id='div_S_pt1.1.1' name='div_pt1.1.1' class="hiddenRow">
+<tr id='div_S_ft1.1.1' name='div_ft1.1.1' class="hiddenRow">
     <td colspan='10'>
         <div class="popup_window">
             <div style='text-align: right; color:red;cursor:pointer'
-                 onclick="document.getElementById('div_S_pt1.1.1').className = 'hiddenRow'">
+                 onclick="document.getElementById('div_S_ft1.1.1').className = 'hiddenRow'">
                 <a onfocus='this.blur();'>[x]</a>
             </div>
-            <pre>pt1.1.1:
-2022-01-28 09:08:43,681   14852     INFO result.py(69) - 开始测试： test_01_H5_submit_eDDAcontract (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
-2022-01-28 09:08:43,681   14852     INFO test_EDDA签约_0127.py(11) - H5eDDAcontract初始化完成！
-2022-01-28 09:08:58,488   14852     INFO H5_申请EDDA签约.py(73) - 步骤1提交接口'https://route-service-qa.eddid.com.cn:1443/open/account/fund/eDDA/application';请求参数为:{'tradeAccountNumber': '122611110', 'bankHolder': 'Londonr Andrew', 'idType': 'HK_IDENTITY_CARD', 'bankCode': '012', 'obverseImgs': [], 'images': [], 'tradeAccountType': 'SECURITIES_CASH', 'idNumber': '350101199006041122', 'terms': 'https://middleware-agreement-qa-public.oss-cn-shenzhen.aliyuncs.com/2021-05/a985f2f1-cf05-46f0-828e-5d3a9bbcf9ac', 'bankType': 'OTHER', 'bankNumber': '122613546', 'bankName': '中国银行（香港）有限公司 012', 'submitSource': 'CP_H5', 'agreement': 'AGREE'};的响应结果为:'{"code":200,"msg":"OK","data":{"orderId":"E201165"}}'
-2022-01-28 09:09:04,533   14852     INFO test_EDDA签约_0127.py(36) - 接口请求完成后，等待系统处理数据，等待6秒
-2022-01-28 09:09:04,533   14852     INFO result.py(156) - 测试执行通过： test_01_H5_submit_eDDAcontract (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
-2022-01-28 09:09:04,533   14852     INFO result.py(90) - 测试结束： test_01_H5_submit_eDDAcontract (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
-2022-01-28 09:09:04,533   14852     INFO result.py(91) - 耗时： 20.851521968841553
+            <pre>ft1.1.1:
+2022-02-11 11:35:17,908    9648     INFO result.py(69) - 开始测试： test_01_H5_submit_eDDAcontract (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
+2022-02-11 11:35:17,909    9648     INFO test_EDDA签约_0127.py(11) - H5eDDAcontract初始化完成！
+2022-02-11 11:35:25,934    9648     INFO H5_申请EDDA签约.py(73) - 步骤1提交接口'https://route-service-qa.eddid.com.cn:1443/open/account/fund/eDDA/application';请求参数为:{'tradeAccountNumber': '122581110', 'bankHolder': 'Eonald Hallu', 'idType': 'HK_IDENTITY_CARD', 'bankCode': '012', 'obverseImgs': [], 'images': [], 'tradeAccountType': 'SECURITIES_CASH', 'idNumber': '500101197010111559', 'terms': 'https://middleware-agreement-qa-public.oss-cn-shenzhen.aliyuncs.com/2021-05/a985f2f1-cf05-46f0-828e-5d3a9bbcf9ac', 'bankType': 'OTHER', 'bankNumber': '1225811103546', 'bankName': '中国银行（香港）有限公司 012', 'submitSource': 'CP_H5', 'agreement': 'AGREE'};的响应结果为:'{"code":20210146,"msg":"已存在相同的申请信息，请检查后重新提交","data":null}'
+2022-02-11 11:35:31,956    9648     INFO test_EDDA签约_0127.py(36) - 接口请求完成后，等待系统处理数据，等待6秒
+2022-02-11 11:35:32,048    9648  WARNING result.py(190) - 测试未通过： test_01_H5_submit_eDDAcontract (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
+Traceback (most recent call last):
+  File "F:\python\EDDID_CDMS\Test_Case\test_EDDA签约_0127.py", line 17, in test_01_H5_submit_eDDAcontract
+    self.assertEqual(200, submiteDDAcontract.status_code)
+AssertionError: 200 != 400
+
+2022-02-11 11:35:32,064    9648     INFO result.py(90) - 测试结束： test_01_H5_submit_eDDAcontract (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
+2022-02-11 11:35:32,064    9648     INFO result.py(91) - 耗时： 14.154893398284912
 
 </pre>
             <div><ul class='figure_ul'><ul></div>
@@ -840,19 +845,15 @@ goChart(chartData_cn);
                 <a onfocus='this.blur();'>[x]</a>
             </div>
             <pre>pt1.2.1:
-2022-01-28 09:09:04,533   14852     INFO result.py(69) - 开始测试： test_02_SQLCheck_bank_ac_eddaapply (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
-2022-01-28 09:09:04,534   14852     INFO test_EDDA签约_0127.py(11) - H5eDDAcontract初始化完成！
-2022-01-28 09:09:24,598   14852     INFO H5_申请EDDA签约.py(90) - 当前状态为：待银行处理，流程等待！当前时间为：2022-01-28 09:09:24,剩余等待20次！
-2022-01-28 09:09:44,675   14852     INFO H5_申请EDDA签约.py(90) - 当前状态为：待银行处理，流程等待！当前时间为：2022-01-28 09:09:44,剩余等待19次！
-2022-01-28 09:10:04,742   14852     INFO H5_申请EDDA签约.py(90) - 当前状态为：待银行处理，流程等待！当前时间为：2022-01-28 09:10:04,剩余等待18次！
-2022-01-28 09:10:24,813   14852     INFO H5_申请EDDA签约.py(90) - 当前状态为：待银行处理，流程等待！当前时间为：2022-01-28 09:10:24,剩余等待17次！
-2022-01-28 09:10:24,858   14852     INFO H5_申请EDDA签约.py(104) - 当前状态为成功，流程结束！
-2022-01-28 09:10:24,906   14852     INFO H5_申请EDDA签约.py(135) - 步骤2结束，查询到数据库cd_clnt_bank_ac_edda_apply,入参12261，结果为((361, '12261', 'E201165', 'EQUITIES', '1486868948946939904', None, 'HKD', 'Londonr Andrew', '012', '122613546', None, 'PERSONAL', '350101199006041122', '1', None, None, None, None, 'N', None, None, 5, '', '', '', None, 'EDDA', 'DONE', 'N', '', 'EDDA', datetime.datetime(2022, 1, 28, 9, 9, 4), '', datetime.datetime(2022, 1, 28, 9, 9, 4), 'system.support', 5),)
-2022-01-28 09:10:24,906   14852     INFO test_EDDA签约_0127.py(30) - 已执行用例02，数据库校验已完成
-2022-01-28 09:10:30,921   14852     INFO test_EDDA签约_0127.py(36) - 接口请求完成后，等待系统处理数据，等待6秒
-2022-01-28 09:10:30,921   14852     INFO result.py(156) - 测试执行通过： test_02_SQLCheck_bank_ac_eddaapply (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
-2022-01-28 09:10:30,921   14852     INFO result.py(90) - 测试结束： test_02_SQLCheck_bank_ac_eddaapply (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
-2022-01-28 09:10:30,921   14852     INFO result.py(91) - 耗时： 86.38708114624023
+2022-02-11 11:35:32,064    9648     INFO result.py(69) - 开始测试： test_02_SQLCheck_bank_ac_eddaapply (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
+2022-02-11 11:35:32,064    9648     INFO test_EDDA签约_0127.py(11) - H5eDDAcontract初始化完成！
+2022-02-11 11:35:32,120    9648     INFO H5_申请EDDA签约.py(104) - 当前状态为成功，流程结束！
+2022-02-11 11:35:32,167    9648     INFO H5_申请EDDA签约.py(135) - 步骤2结束，查询到数据库cd_clnt_bank_ac_edda_apply,入参12258，结果为((366, '12258', 'E201170', 'EQUITIES', '1486907812191899648', None, 'HKD', 'Eonald Hallu', '012', '1225811103546', None, 'PERSONAL', '500101197010111559', '1', None, None, None, None, 'N', None, None, 5, '', '', '', None, 'EDDA', 'DONE', 'N', '', 'EDDA', datetime.datetime(2022, 1, 28, 11, 43, 30), '', datetime.datetime(2022, 1, 28, 11, 43, 30), 'system.support', 5),)
+2022-02-11 11:35:32,167    9648     INFO test_EDDA签约_0127.py(30) - 已执行用例02，数据库校验已完成
+2022-02-11 11:35:38,180    9648     INFO test_EDDA签约_0127.py(36) - 接口请求完成后，等待系统处理数据，等待6秒
+2022-02-11 11:35:38,180    9648     INFO result.py(156) - 测试执行通过： test_02_SQLCheck_bank_ac_eddaapply (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
+2022-02-11 11:35:38,180    9648     INFO result.py(90) - 测试结束： test_02_SQLCheck_bank_ac_eddaapply (Test_Case.test_EDDA签约_0127.Test_Creat_H5_eDDAcontract)
+2022-02-11 11:35:38,180    9648     INFO result.py(91) - 耗时： 6.115334510803223
 
 </pre>
             <div><ul class='figure_ul'><ul></div>
@@ -866,11 +867,11 @@ goChart(chartData_cn);
             <span class="lang-en">Total</span>
         </td>
         <td>2</td>
-        <td class="passCase">2</td>
-        <td class="failCase">0</td>
+        <td class="passCase">1</td>
+        <td class="failCase">1</td>
         <td class="errorCase">0</td>
         <td class="skipCase">0</td>
-        <td style="text-align:right;">100.00%</td>
+        <td style="text-align:right;">50.00%</td>
         <td>0</td>
         <td>&nbsp;</td>
     </tr>

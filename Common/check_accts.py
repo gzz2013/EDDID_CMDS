@@ -22,46 +22,54 @@ def accountCategory(ac_id):
         accountCategoryCode = 'securitiesCash'
         accountCategoryAlias = '香港及环球证券账户(现金)'
         tradeAccountType = 'SECURITIES_CASH'
+        EDDACollectionAccount = '783266717'
 
-        return accountCategoryCode,tradeAccountType,accountCategoryAlias
+        return accountCategoryCode,tradeAccountType,accountCategoryAlias,EDDACollectionAccount
     else:
         #ex：501121
         if busin_acty_cde=='EQUITIES' and ac_catg =='CASH':
             accountCategoryCode='securitiesCash'
             accountCategoryAlias='香港及环球证券账户(现金)'
             tradeAccountType = 'SECURITIES_CASH'
+            EDDACollectionAccount='783266717'
 
         #ex："accountId":"5011211210"
         elif busin_acty_cde=='EQUITIES' and ac_catg=='MARGIN':
             accountCategoryCode='securitiesMargin'
             accountCategoryAlias='香港及环球证券账户(保证金)'
             tradeAccountType='SECURITIES_MARGIN'
+            EDDACollectionAccount = '783266717'
 
         #ex："accountId":"5011213210"
         elif busin_acty_cde=='FUTURES' and ac_catg=='MARGIN':
             accountCategoryCode='futuresMargin'
             accountCategoryAlias='香港及环球期货账户(保证金)'
             tradeAccountType = 'FUTURES_MARGIN'
+            EDDACollectionAccount = '000265077'
 
         #ex："accountId": "50112132132"
         elif busin_acty_cde=='EQUITIES' and ac_catg=='CASH':
             accountCategoryCode='securitiesAyersCash'
             accountCategoryAlias='全权委托证券（现金）账户'
             tradeAccountType = 'SECURITIES_AYERS_CASH'
+            EDDACollectionAccount = '783266717'
 
         #ex："accountId":"501121521"
         elif busin_acty_cde=='FUTURES' and ac_catg=='MARGIN':
             accountCategoryCode='futuresDayTradeMargin'
             accountCategoryAlias='香港期货即日买卖账户(保证金)'
             tradeAccountType = 'FUTURES_DAYTRADING_MARGIN'
+            EDDACollectionAccount = '000265077'
 
         #ex："accountId":"5011215216"
         elif busin_acty_cde=='FOREX' and ac_catg=='MARGIN':
             accountCategoryCode='leveragedForeignExchangeAccountMargin'
             accountCategoryAlias='杠杆式外汇账户(保证金)'
             tradeAccountType = 'MT5'
+            #EDDA入金和杠杆外汇账号不相关
+            EDDACollectionAccount = '783266717'
 
-        return accountCategoryCode,tradeAccountType,accountCategoryAlias
+        return accountCategoryCode,tradeAccountType,accountCategoryAlias,EDDACollectionAccount
 
 #根据账号类型查询收款银行账号,收款的银行账号为指定的收款币种账号
 def getbankAccountNumber(ac_id,currency):

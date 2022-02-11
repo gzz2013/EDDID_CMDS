@@ -18,8 +18,8 @@ from Test_Case.test_SwapEquity转股_0106 import Test_SwapEquity转股
 from Test_Case.test_updateClientInfo修改客户资料及审批_0111 import Test_UpdateClientInfo修改用户资料及审批
 from Test_Case.test_h5_sub银行子账号申请_0119 import Test_sub_account_银行子账号申请及审核
 from Test_Case.test_Nen出金申请及审批_0120 import Test_CreatEquitiesWithdrawalNew出金
-
 from Test_Case.test_EDDA签约_0127 import Test_Creat_H5_eDDAcontract
+from Test_Case.test_h5_EDDAdeposit入金_0128 import Test_H5_EDDAdeposit入金
 
 def get_suite_creatUser新建用户后停用():
     loader=unittest.TestLoader()
@@ -134,4 +134,10 @@ def get_suite_Creat_H5_eDDAcontract():
     loader=unittest.TestLoader()
     suite=unittest.TestSuite()
     suite.addTests(loader.loadTestsFromTestCase(Test_Creat_H5_eDDAcontract))
+    return suite
+
+def get_suite_Creat_H5_EDDAdeposit入金():
+    loader=unittest.TestLoader()
+    suite=unittest.TestSuite()
+    suite.addTests(loader.loadTestsFromTestCase(Test_H5_EDDAdeposit入金))
     return suite

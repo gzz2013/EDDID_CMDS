@@ -23,7 +23,8 @@ class Test_Creat_H5_eDDAcontract(unittest.TestCase):
         Check_bank_ac_eddaapply = self.H5eDDAcontract.check_bank_ac_edda_apply()
 
         accinfo=datahandle(data_read('F:\\python\\EDDID_CDMS\\Data\\unableAcct.txt'))
-        self.assertEqual("DONE", Check_bank_ac_eddaapply[0][27])
+        # self.assertEqual("DONE", Check_bank_ac_eddaapply[0][27])
+        self.assertEqual("VERIFY_PASS", Check_bank_ac_eddaapply[0][27])
         self.assertEqual(accinfo[0], Check_bank_ac_eddaapply[0][1])
         self.assertEqual(accinfo[5], Check_bank_ac_eddaapply[0][12])
         self.assertEqual(accinfo[4]+" "+accinfo[3], Check_bank_ac_eddaapply[0][7])

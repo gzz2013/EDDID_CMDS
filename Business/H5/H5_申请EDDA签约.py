@@ -28,7 +28,7 @@ class Creat_h5_eDDAcontract():
         #获取账号类型
         tradeAccountType = accountCategory(ac_id)[1]
         #生成开户银行账号
-        tanceBankAccount = str(clientId) + "3546"
+        tanceBankAccount = str(ac_id) + "3546"
         IdNumber=com[5]
         #随机生成转出金额
         tanceAmount = Randoms().randomAmount()
@@ -74,13 +74,10 @@ class Creat_h5_eDDAcontract():
         print("步骤1提交接口'{}';请求参数为:{};响应结果为:'{}'".format(H5submiteDDAurl, data, H5submiteDDResp.text))
         return H5submiteDDResp
 
-
     #校验数据库状态
     def check_bank_ac_edda_apply(self):
         check_bank_ac_eddaapply=cd_clnt_bank_ac_edda_apply(int(clientId))
-
         print("数据库cd_clnt_bank_ac_edda_apply查询结果为{}".format(check_bank_ac_eddaapply))
-
         statcode=check_bank_ac_eddaapply[0][27]
         #如果statcode=BANK_HANDLING要等待，直到流程有状态返回
         b = 20
@@ -102,7 +99,6 @@ class Creat_h5_eDDAcontract():
         if statcode == 'DONE':
             print("当前状态为成功，流程结束！")
             logging.info("当前状态为成功，流程结束！")
-
         else:
             time.sleep(15)
             webtoken=cdms_获取token()

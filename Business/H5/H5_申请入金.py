@@ -134,8 +134,7 @@ class Creat_h5_deposit():
         return auditDepositNoResp
 
     def get_current_state_deposit(self):
-
-        cstate = gs_wrkflw_log(applyId)[0][3]
+        cstate = gs_apply_work_flow(applyId)[0][3]
         print("数据库查询到当前流程状态cstate的值为{}".format(cstate))
         # 如果系统处理中，一直循环不中断
         b = 20
@@ -144,7 +143,7 @@ class Creat_h5_deposit():
             print("当前状态为：系统处理中，流程等待！当前时间为：{},剩余等待{}次！".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), b))
             logging.info(
                 "当前状态为：系统处理中，流程等待！当前时间为：{},剩余等待{}次！".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), b))
-            cstate = gs_wrkflw_log(applyId)[0][3]
+            cstate = gs_apply_work_flow(applyId)[0][3]
             print("数据库查询到当前流程状态cstate的值为{}".format(cstate))
             logging.info("数据库查询到当前流程状态cstate的值为{}".format(cstate))
             b -= 1
@@ -249,7 +248,7 @@ class Creat_h5_deposit():
             # return auditDepositToResp
 
         #对于任意一种请求都不在校验接口请求结果，直接查询数据库
-        sqlauditDepositTo=gs_wrkflw_log(applyId)[0]
+        sqlauditDepositTo=gs_apply_work_flow(applyId)[0]
 
         logging.info("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))
         print("步骤4结束，查询到数据库gs_wrkflw_log,入参{}，结果为{}".format(applyId,sqlauditDepositTo))

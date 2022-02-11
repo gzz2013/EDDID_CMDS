@@ -186,7 +186,7 @@ if __name__=="__main__":
     # print("gs_wrkflw_log：入参{}，结果{}".format(apply_id,gs_wrkflw_log(apply_id)))
     # print("gs_wrkflw_log",gs_wrkflw_log(52154))
     # print("get_newrate",get_newrate())
-    # print("cd_deposit++++++++++++++",cd_deposit(11431,46.41))
+    print("cd_deposit++++++++++++++",cd_deposit(12258,3.57))
     # print("get_clnt_id:",get_clnt_id(13480701220)[0][1])
     # print("get_clnt_id:",get_clnt_id(13480701220))
     # print("cd_ac_id:",cd_ac_id(5010983210))
@@ -199,7 +199,7 @@ if __name__=="__main__":
     # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
     # print("cd_clnt_bank_sub_acct_apply:", cd_clnt_bank_sub_acct_apply(501176))
     # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
-    print("cd_clnt_bank_ac_edda_apply:", cd_clnt_bank_ac_edda_apply(501256)[0][27])
+    # print("cd_clnt_bank_ac_edda_apply:", cd_clnt_bank_ac_edda_apply(501256)[0][27])
 
 
 

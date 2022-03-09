@@ -167,6 +167,26 @@ def  cd_clnt_bank_ac_edda_apply(clnt_id):
     return cd_clnt_bank_ac_eddaapply
 
 
+#通过客户邮箱查询插入状态
+def  cd_clnt_email_investigate_account(clnt_id):
+    cd_clnt_email_investigate = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="SELECT * FROM cd_clnt_email_investigate_account WHERE email='{}' ORDER BY init_time DESC LIMIT 1".format(clnt_id))
+    return cd_clnt_email_investigate
+
+# 通过clnt_id查询短信发送记录
+def  cd_clnt_sms_record(clnt_id):
+    cd_clnt_smsrecord = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="SELECT * FROM cd_clnt_sms_record WHERE phone={} ORDER BY init_time desc LIMIT 1".format(clnt_id))
+    return cd_clnt_smsrecord
+
+
+# 通过邮件类型和消息体关键字查询发往MQ的消息
+def  gs_mq_msg_info(des,msgkeyword):
+    gs_mq_msginfo = SQL_Check.eddid_gfss_sit(database=sqldata,
+                                     sql="SELECT * FROM gs_mq_msg_info  where des='{}' AND msg like '%{}%' ORDER BY init_time desc LIMIT 1".format(des,msgkeyword))
+    return gs_mq_msginfo
+
+
 
 
 
@@ -186,7 +206,7 @@ if __name__=="__main__":
     # print("gs_wrkflw_log：入参{}，结果{}".format(apply_id,gs_wrkflw_log(apply_id)))
     # print("gs_wrkflw_log",gs_wrkflw_log(52154))
     # print("get_newrate",get_newrate())
-    print("cd_deposit++++++++++++++",cd_deposit(12258,3.57))
+    # print("cd_deposit++++++++++++++",cd_deposit(12258,3.57))
     # print("get_clnt_id:",get_clnt_id(13480701220)[0][1])
     # print("get_clnt_id:",get_clnt_id(13480701220))
     # print("cd_ac_id:",cd_ac_id(5010983210))
@@ -200,6 +220,9 @@ if __name__=="__main__":
     # print("cd_clnt_bank_sub_acct_apply:", cd_clnt_bank_sub_acct_apply(501176))
     # print("cd_clnt_equity_swap_item:", cd_clnt_equity_swap_item(320))
     # print("cd_clnt_bank_ac_edda_apply:", cd_clnt_bank_ac_edda_apply(501256)[0][27])
+    print("cd_clnt_email_investigate_account：",cd_clnt_email_investigate_account("544162008@qq.com"))
+    print("cd_clnt_sms_record：",cd_clnt_sms_record(15666666669))
+    print("gs_mq_msg_info：",gs_mq_msg_info('客户邮箱审查',"544162008@qq.com"))
 
 
 

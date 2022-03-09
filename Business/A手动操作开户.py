@@ -12,33 +12,35 @@ from Common.data_文本读写 import *
 
 class CreatUser():
     # 步骤1
-    def ApplyClinet资料提交(self):
-        global phone, token, eddidhost, s, cremail, rfirstName, rlastName, rchName, idCardNo, cookfront
-        # 生成电话号
-        phone = Randoms().telephone()
+    def ApplyClinet资料提交(selt,i):
+        global phone, token, eddidhost, s, cremail, rfirstName, rlastName, rchName, idCardNo, cookfront,sheet
+
+
+        # phone = Randoms().telephone()
         # print("phone数据类型************************************************",type(phone))
-        # phone = "69335692"
+
+        phone = "18123697991"
         # 生成新邮箱
-        cremail = Randoms.RandomEmail()
-        # cremail="sheldon.yuen@eddidfintech.com"
+        # cremail = Randoms.RandomEmail()
+        cremail="ganjiexiang6@126.com"
         # 英文名firstName
         rfirstName = Randoms().creat_EFName()
-        # rfirstName = "Sheldon"
+        # rfirstName = "Tom"
         # 英文姓lastName
         rlastName = Randoms().creat_ELName()
-        # rlastName = "Yuen"
+        # rlastName = "Leung"
         # 中文名chName
         rchName = Randoms().creat_CHName()
         # rchName = "Sheldon Yuen"
         # 生成身份证号
         idCardNo = Randoms().ident_generator()
-        # idCardNo=" D235687(5)"
+        # idCardNo="D9625128"
         # 国籍
-        # cantrCode = "CHN"
-        cantrCode = "HKG"
+        cantrCode = "CHN"
+        # cantrCode = "HKG"
         # cantrCode ="MYS"
-        # 身份证类型 香港为"1" 大陆为"2"
-        idCardT = "1"
+        #身份证类型 香港为"1" 大陆为"2"
+        idCardT = "2"
         # cookies的前缀
         cookfront = cookfr
         # 生成称谓（性别）
@@ -47,7 +49,7 @@ class CreatUser():
         # ctitle = Randoms().choice_title()
         # 获取随机的账户类型
         caccts = Randoms().choice_accts()
-        Language = Randoms().choice_Language()
+        # Language = Randoms().choice_Language()
         # 新列表用来存放用户基本信息
         userinformationList = []
         userinformationList.append(phone)
@@ -117,7 +119,7 @@ class CreatUser():
                     # "businessNature": "education",
                     #公司地址
                     "officeAddress": "香港47845512245" + caccts,
-                    "officePhone": "0771-" + caccts,
+                    "officePhone": "0825-" + caccts,
                     "registeredCompany": "Y",
                     "employmentRemark": "",
                     "totalIncomeYear": "gt1000000",
@@ -243,7 +245,7 @@ class CreatUser():
                 # 证券保证金
                 "futuresMargin",
                 # 期货保证金
-                "leveragedForeignExchangeAccountMargin",
+                # "leveragedForeignExchangeAccountMargin",
                 # 杠杆式外汇账户(保证金)
                 # "securitiesAyersCash"
                 # #全权委托证券（现金）账户
@@ -728,6 +730,9 @@ class CreatUser():
 
 # ”if __name__=="__main__":“的作用在当前文件run时会执行下面的代码，如果时外部调用就不会执行if里面的代码
 if __name__ == "__main__":
+
+    # 以行数确定轮询次数
+
     a = 1
     CreatUser = CreatUser()
     # token = cdms_获取token()

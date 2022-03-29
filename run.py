@@ -13,7 +13,7 @@ suite = unittest.TestSuite()
 # data_write('F:\\python\\EDDID_CDMS\\Data\\token.txt', token)
 #
 suite.addTests(get_suite_creatUser新建用户())
-# suite.addTests(get_suite_CreateExchange新建换汇申请单())
+suite.addTests(get_suite_CreateExchange新建换汇申请单())
 # suite.addTests(get_suite_creatUser没有结构性产品账号及申请结构性产品审批())
 # suite.addTests(get_suite_CreatEquitiesDeposit入金())
 # suite.addTests(get_suite_CreatEquitiesDeposit大额入金())

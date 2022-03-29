@@ -13,11 +13,11 @@ suite = unittest.TestSuite()
 # data_write('F:\\python\\EDDID_CDMS\\Data\\token.txt', token)
 #
 suite.addTests(get_suite_creatUser新建用户())
-suite.addTests(get_suite_CreateExchange新建换汇申请单())
-suite.addTests(get_suite_creatUser没有结构性产品账号及申请结构性产品审批())
+# suite.addTests(get_suite_CreateExchange新建换汇申请单())
+# suite.addTests(get_suite_creatUser没有结构性产品账号及申请结构性产品审批())
 # suite.addTests(get_suite_CreatEquitiesDeposit入金())
 # suite.addTests(get_suite_CreatEquitiesDeposit大额入金())
-suite.addTests(get_suite_creatUser新建所有类型用户())
+# suite.addTests(get_suite_creatUser新建所有类型用户())
 # suite.addTests(get_suite_creatUser新建用户后停用())
 # suite.addTests(get_suite_enableAcct停用后开启())
 # suite.addTests(get_suite_closeAcct账号关闭())
@@ -31,7 +31,7 @@ suite.addTests(get_suite_creatUser新建所有类型用户())
 # suite.addTests(get_suite_Creat_H5_EDDAdeposit入金())
 
 #####出金流程已变动
-# suite.addTests(get_suite_CreatEquitiesWithdrawal出金())
+suite.addTests(get_suite_CreatEquitiesWithdrawal出金())
 ##调用第三方接口'获取股票信息异常'
 # suite.addTests(get_suite_SwapEquity转股())
 #####出金流程调试中

@@ -19,20 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c938bdb1-e028-47a2-ab10-2eda3b4c41cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Business/0309_EmailInvestigateAccounts失败邮件逻辑优化.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/A_EXCEL开户.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/test-try.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="c938bdb1-e028-47a2-ab10-2eda3b4c41cb" name="Default Changelist" comment="12点20分">
+      <change afterPath="$PROJECT_DIR$/demo/self_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/安全测试/dirsearch_url.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/EDDID_CDMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EDDID_CDMS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/0309_EmailInvestigateAccounts失败邮件逻辑优化.py" beforeDir="false" afterPath="$PROJECT_DIR$/Business/0309_EmailInvestigateAccounts失败邮件逻辑优化.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/A_EXCEL开户.py" beforeDir="false" afterPath="$PROJECT_DIR$/Business/A_EXCEL开户.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/A手动操作开户.py" beforeDir="false" afterPath="$PROJECT_DIR$/Business/A手动操作开户.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/CreatEquitiesWithdrawal出金.py" beforeDir="false" afterPath="$PROJECT_DIR$/Business/CreatEquitiesWithdrawal出金.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/com_sql/eddid_data_select.py" beforeDir="false" afterPath="$PROJECT_DIR$/Common/com_sql/eddid_data_select.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/H5/mobile_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/Business/H5/mobile_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/88295.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Data/88295.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/bankCardinformation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/bankCardinformation.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/exchorderinfor.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/exchorderinfor.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/unableAcct.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/unableAcct.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/updateClient.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/updateClient.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/userdatainf.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/userdatainf.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/userdatainf_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/userdatainf_1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report/EDDID_CDMS项目接口测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/EDDID_CDMS项目接口测试.html" afterDir="false" />
@@ -64,14 +63,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="C:/Program Files/Python396/Scripts" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\python\EDDID_CDMS\Business" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.eddid_data_select">
+  <component name="RunManager" selected="Python.run">
     <configuration name="0309_EmailInvestigateAccounts失败邮件逻辑优化" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EDDID_CDMS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,7 +114,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="A_EXCEL开户" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="cdms_config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EDDID_CDMS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,11 +122,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Business" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Config" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Business/A_EXCEL开户.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Config/cdms_config.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -135,7 +135,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="eddid_data_select" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="dirsearch_url" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EDDID_CDMS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -143,11 +143,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Common/com_sql" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo/安全测试" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Common/com_sql/eddid_data_select.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/安全测试/dirsearch_url.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,7 +156,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test-try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EDDID_CDMS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,11 +164,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/test-try.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,10 +179,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.eddid_data_select" />
+        <item itemvalue="Python.run" />
         <item itemvalue="Python.0309_EmailInvestigateAccounts失败邮件逻辑优化" />
-        <item itemvalue="Python.test-try" />
-        <item itemvalue="Python.A_EXCEL开户" />
+        <item itemvalue="Python.dirsearch_url" />
+        <item itemvalue="Python.cdms_config" />
         <item itemvalue="Python.A手动操作开户" />
       </list>
     </recent_temporary>
@@ -196,6 +196,14 @@
       <option name="presentableId" value="Default" />
       <updated>1646626170125</updated>
     </task>
+    <task id="LOCAL-00001" summary="2022年3月9日15:52:40">
+      <created>1646812375894</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646812375894</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,31 +218,53 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2022年3月9日15:52:40" />
+    <MESSAGE value="12点20分" />
+    <option name="LAST_COMMIT_MESSAGE" value="12点20分" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1899" height="295" key="GridCell.Tab.0.bottom" timestamp="1646812026569">
+    <state x="558" y="86" key="CommitChangelistDialog2" timestamp="1648527620670">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="295" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1646812026569" />
+    <state x="558" y="86" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1648527620670" />
+    <state x="854" y="355" key="FileChooserDialogImpl" timestamp="1648527406235">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="854" y="355" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1648527406235" />
+    <state width="1899" height="471" key="GridCell.Tab.0.bottom" timestamp="1648104896883">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="369" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1647243629323" />
+    <state width="1899" height="471" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1648104896883" />
     <state width="1627" height="230" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1646730522454" />
-    <state width="1899" height="295" key="GridCell.Tab.0.center" timestamp="1646812026569">
+    <state width="1899" height="471" key="GridCell.Tab.0.center" timestamp="1648104896883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="295" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1646812026569" />
+    <state width="1899" height="369" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1647243629323" />
+    <state width="1899" height="471" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1648104896883" />
     <state width="1627" height="230" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1646730522454" />
-    <state width="1899" height="295" key="GridCell.Tab.0.left" timestamp="1646812026569">
+    <state width="1899" height="471" key="GridCell.Tab.0.left" timestamp="1648104896883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="295" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1646812026569" />
+    <state width="1899" height="369" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1647243629323" />
+    <state width="1899" height="471" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1648104896883" />
     <state width="1627" height="230" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1646730522454" />
-    <state width="1899" height="295" key="GridCell.Tab.0.right" timestamp="1646812026569">
+    <state width="1899" height="471" key="GridCell.Tab.0.right" timestamp="1648104896883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="295" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1646812026569" />
+    <state width="1899" height="369" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1647243629323" />
+    <state width="1899" height="471" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1648104896883" />
     <state width="1627" height="230" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1646730522454" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1646626247688">
+    <state x="2333" y="133" key="SettingsEditor" timestamp="1648532854848">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="413" y="133" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1648527407502" />
+    <state x="2333" y="133" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1648532854848" />
+    <state x="521" y="361" key="search.everywhere.popup" timestamp="1647938446163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1646626247688" />
+    <state x="521" y="361" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1647938446163" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

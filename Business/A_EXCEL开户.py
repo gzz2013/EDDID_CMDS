@@ -290,10 +290,10 @@ class CreatUser():
             "bankCardNo": "",
             "elecNo": "",
             "responsible": "kwokwah.wong",
-            # "emailLanguage": Language,
+            "emailLanguage": Language,
             # "emailLanguage": "zh-hans",
             # 简体
-            "emailLanguage": Language,
+            # "emailLanguage": Language,
             # 繁体
             "accts": [
                 # caccts
@@ -301,7 +301,7 @@ class CreatUser():
                 # 证券现金
                 # "securitiesMargin",
                 # 证券保证金
-                "futuresMargin",
+                # "futuresMargin",
                 # 期货保证金
                 # "leveragedForeignExchangeAccountMargin",
                 # 杠杆式外汇账户(保证金)

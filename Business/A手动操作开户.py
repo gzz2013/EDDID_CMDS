@@ -12,17 +12,17 @@ from Common.data_文本读写 import *
 
 class CreatUser():
     # 步骤1
-    def ApplyClinet资料提交(selt,i):
+    def ApplyClinet资料提交(selt):
         global phone, token, eddidhost, s, cremail, rfirstName, rlastName, rchName, idCardNo, cookfront,sheet
 
 
-        # phone = Randoms().telephone()
+        phone = Randoms().telephone()
         # print("phone数据类型************************************************",type(phone))
 
-        phone = "18123697991"
+        # phone = "18123697991"
         # 生成新邮箱
-        # cremail = Randoms.RandomEmail()
-        cremail="ganjiexiang6@126.com"
+        cremail = Randoms.RandomEmail()
+        # cremail="ganjiexiang6@126.com"
         # 英文名firstName
         rfirstName = Randoms().creat_EFName()
         # rfirstName = "Tom"
@@ -233,9 +233,9 @@ class CreatUser():
             "elecNo": "",
             "responsible": "kwokwah.wong",
             # "emailLanguage": Language,
-            # "emailLanguage": "zh-hans",
+            "emailLanguage": "zh-hans",
             # 简体
-            "emailLanguage": "zh-hant",
+            # "emailLanguage": "zh-hant",
             # 繁体
             "accts": [
                 # caccts

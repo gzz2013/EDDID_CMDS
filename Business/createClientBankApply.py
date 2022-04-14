@@ -139,10 +139,10 @@ if __name__ == "__main__":
         # 实例化CreateClientBank
         print("=====================================步骤1：", CreateClientBank.createClientBankApply().text)
         time.sleep(4)
-        print("=====================================步骤2：", CreateClientBank.approvalClientBankApply().text)
+        # print("=====================================步骤2：", CreateClientBank.approvalClientBankApply().text)
         time.sleep(4)
-        print("=====================================步骤3：", CreateClientBank.approvalClientBankApplytwo().text)
+        # print("=====================================步骤3：", CreateClientBank.approvalClientBankApplytwo().text)
         time.sleep(4)
-        print("=====================================步骤4：", CreateClientBank.sql_check_BankCard())
+        # print("=====================================步骤4：", CreateClientBank.sql_check_BankCard())
         time.sleep(4)
 

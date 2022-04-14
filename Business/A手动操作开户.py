@@ -21,8 +21,8 @@ class CreatUser():
 
         # phone = "18123697991"
         # 生成新邮箱
-        cremail = Randoms.RandomEmail()
-        # cremail="ganjiexiang6@126.com"
+        # cremail = Randoms.RandomEmail()
+        cremail="f11f07119380@bareed.ws"
         # 英文名firstName
         rfirstName = Randoms().creat_EFName()
         # rfirstName = "Tom"

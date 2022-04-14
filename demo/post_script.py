@@ -43,7 +43,7 @@ def send2robot(tokenid, text):
 def post_Email(username):
     mailserver = "smtp.exmail.qq.com"  # 邮箱服务器地址
     username_send = ''  # 邮箱用户名
-    password = 'W9d7Dd48tC76xeMC'  # 邮箱密码：需要使用授权码
+    password = 'W9d7Dd48tC7'  # 邮箱密码：需要使用授权码
     # username_recv = "ganjiexiang@qq.com,"#收件人，多个收件人用逗号隔开
     username_recv = username
     message = '''

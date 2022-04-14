@@ -11,9 +11,7 @@ from Common.data_文本读写 import *
 
 
 class CreatUser():
-
     def SaveApplyClient(self):
-
         global phone,countryCode
         eddidhost=url
         cookfront = cookfr
@@ -24,6 +22,11 @@ class CreatUser():
         phone0= Randoms().telephone()
         phone1 = Randoms().telephone()
         phone2 = Randoms().telephone()
+
+        print("_____________________________")
+        print("phone0=={}".format(phone0))
+        print("phone1=={}".format(phone1))
+        print("phone2=={}".format(phone2))
         cantrCode= "CHN"
         # cantrCode = "HKG"
         # cantrCode ="MYS"
@@ -33,6 +36,11 @@ class CreatUser():
         cremail0 = Randoms.RandomEmail()
         cremail1 = Randoms.RandomEmail()
         cremail2 = Randoms.RandomEmail()
+
+        print("_____________________________")
+        print("cremail0=={}".format(cremail0))
+        print("cremail1=={}".format(cremail1))
+        print("cremail2=={}".format(cremail2))
         # cremail="ganjiexiang6@126.com"
         # 英文名firstName
         rfirstName = Randoms().creat_EFName()
@@ -47,6 +55,11 @@ class CreatUser():
         idCardNo0 = Randoms().ident_generator()
         idCardNo1 = Randoms().ident_generator()
         idCardNo2 = Randoms().ident_generator()
+
+        print("_____________________________")
+        print("idCardNo0=={}".format(idCardNo0))
+        print("idCardNo1=={}".format(idCardNo1))
+        print("idCardNo2=={}".format(idCardNo2))
         # idCardNo="D9625128"
 
         headers = {
@@ -59,13 +72,14 @@ class CreatUser():
                 {
                     #公司授权人士资料
                     "title": "mr", #称谓
-                    "firstName": "授权名1", #名字
-                    "lastName": "授权姓", #姓氏
-                    "chName": "授权中文", #授权中文
+                    "firstName": "dd"+ rfirstName, #名字
+                    "lastName": "dd"+ rlastName, #姓氏
+                    "chName": rchName, #授权中文
                     "usedCnName": "shouquancy",  #曾用英文姓名
                     "usedChName": "shouquancyz", #曾用中文名
                     "idType": idCardT,  #证件类型
                     "idNumber": idCardNo0,  #证件号码
+                    # "idNumber": 6611151123125151515,  #证件号码
                     "countryCode": cantrCode,  #国籍
                     "countryIssue": cantrCode, #签证国家
                     "birthday": "1997-03-01", #出生日期
@@ -98,7 +112,8 @@ class CreatUser():
                     "address": "gdonggdong"+phone0,  #住宅地址
                     "countryCode": "GLP",  #国籍
                     "idType": idCardT, #身份证类型
-                    "idNumber": idCardNo0, #证件号
+                    # "idNumber": 150101195805091331, #证件号
+                    "idNumber": idCardNo1, #证件号
                     "birthday": "1994-03-01",
                     "birthdayPlace": "GLP", #出生地
                     "percentageOwnership": "21", #拥有权百分比
@@ -107,7 +122,8 @@ class CreatUser():
                 {
                     # 董事资料
                     "name": rfirstName, #？？
-                    "idCard": idCardNo1, #身份证号 ？？
+                    # "idCard": idCardNo1, #身份证号 ？？
+                    # "idCard": 98745645455,  # 身份证号 ？？
                     "birthday": "1988-03-02", #出生日期
                     "birthdayPlace": "MHL", #出生地点
                     "address": "姓氏", #住宅地址
@@ -118,6 +134,7 @@ class CreatUser():
                     "countryCode": "FJI", #国籍
                     "idType": "1", #身份证类型
                     "idNumber": idCardNo1,
+                    # "idNumber": 9874521452155,
                     "type": "prsn"
                 },
 
@@ -132,6 +149,7 @@ class CreatUser():
                     "countryIssue": "WLF", #签发国家
                     "countryCode": "FJI",  #国籍
                     "phone": phone1, #电话号
+                    # "phone":10172370144,
                     "type": "bo"
                 }
             ],
@@ -139,20 +157,29 @@ class CreatUser():
 
             },
             "accts": [
-                "securitiesCash"   #开户账号类型
+                # caccts
+                "securitiesCash",
+                # 证券现金
+                # "securitiesMargin",
+                # 证券保证金
+                "futuresMargin",
+                # 期货保证金
+                "leveragedForeignExchangeAccountMargin",
+                # 杠杆式外汇账户(保证金)
             ],
             #公司账户资料
             "openWay": "visitingAccount",
+            # "openWay": "postal",
             #开户方式：visitingAccount 亲临开户；邮件开户
-            "cnName": "sadsad1",
+            "cnName": rfirstName,
             #公司英文名
-            "chName": "撒大大1",
+            "chName": rlastName,
             #公司中文名
             "crpratType": "limitedCompany",
             #公司类型
             "idType": "others",
             #公司注册文书类型
-            "idNumber": idCardNo2,
+            "idNumber": idCardNo1,
             # 公司注册编号
             "birthdayPlace": "FJI",
             # 成立国家
@@ -161,9 +188,10 @@ class CreatUser():
             # 业务性质
             "phone": phone2,
             # 公司电话
-            "fax": "59212332",
+            "fax": "5921233878",
             # 公司传真
             "email": cremail2,
+            # "email": "ganjiexiang8@126.com",
             # 公司邮箱
             "ccaInvtorAcctName": phone2,
             # 中央结算投资者户口名称
@@ -181,16 +209,29 @@ class CreatUser():
             "paidUpcapital": "31223",#缴足股本
             "liquidAssets": "21", #流动资产
             "investmentObjective": [
-                "speculation"
+                "speculation", #投机
+                "hedging", #对冲保值
+                "asset", #资产增值
+                "income", #利息收益
             ],
             # 投资经验及目标
-            "withDerivativesKnowledge": "Y",
-            "withDerivativesDeal": "Y",
-            "riskTolerance": "high",
-            "securitiesExperience": "6To10Years", #证券
-            "securitiesAvgProtfolio": "2",
-            "cbbcExperience": "6To10Years",#牛熊证
-            "cbbcAvgProtfolio": "2",
+            "withDerivativesKnowledge": "N",
+            "withDerivativesDeal": "N",
+            "riskTolerance": "medium",
+            "securitiesExperience": "lt1Year",
+            "securitiesAvgProtfolio": "11",
+            "cbbcExperience": "1To5Years",
+            "cbbcAvgProtfolio": "22",
+            "warrantExperience": "6To10Years",
+            "warrantAvgProtfolio": "33",
+            "futuresExperience": "gt10Years",
+            "futuresAvgProtfolio": "44",
+            "optionsExperience": "lt1Year",
+            "optionsAvgProtfolio": "55",
+            "foreignExchangExperience": "1To5Years",
+            "foreignAvgProtfolio": "66",
+            "otherInvest": "lt1Year",
+            "otherAvgProtfolio": "77",
             "settleAcctS": [
 
             ],
@@ -206,9 +247,9 @@ class CreatUser():
             "isFuturesMarketParticipantOrSupervisor": "N",
             "futuresMarketParticipantOrSupervisorS": [
                 {
-                    "actualOwner": "",
-                    "institutionName": "",
-                    "licenceRegistrationNumber": ""
+                    "actualOwner": "大厦",
+                    "institutionName": "2654",
+                    "licenceRegistrationNumber": "56546"
                 }
             ],
             "isRelationshipWithEDFuture": "N",
@@ -968,7 +1009,7 @@ if __name__ == "__main__":
     for i in range(a):
         # 实例化CreatUser
         print("=====================================步骤1：", CreatUser.SaveApplyClient().text)
-        time.sleep(8)
+        time.sleep(2)
         # print("=====================================步骤1：", CreatUser.ApplyClinet资料提交().text)
         # time.sleep(30)
         # print("=====================================步骤2：", CreatUser.SubmitAudit提交审核().text)

@@ -4,6 +4,7 @@ import unittest
 import HTMLReport
 from Business.login import cdms_获取token
 from Common.data_文本读写 import *
+import datetime
 
 from Test_Suite.suite_cmds_Summary import *
 
@@ -26,9 +27,9 @@ suite.addTests(get_suite_CreateClientBank添加银行卡())
 suite.addTests(get_suite_Creat_mrktdat_sub())
 suite.addTests(get_suite_Creat_deposit_sub())
 suite.addTests(get_suite_UpdateClientInfo修改用户资料及审批())
-# suite.addTests(get_suite_Subaccount银行子账号申请及审核())
-# suite.addTests(get_suite_Creat_H5_eDDAcontract())
-# suite.addTests(get_suite_Creat_H5_EDDAdeposit入金())
+suite.addTests(get_suite_Subaccount银行子账号申请及审核())
+suite.addTests(get_suite_Creat_H5_eDDAcontract())
+suite.addTests(get_suite_Creat_H5_EDDAdeposit入金())
 
 #####出金流程已变动
 # suite.addTests(get_suite_CreatEquitiesWithdrawal出金())
@@ -37,11 +38,15 @@ suite.addTests(get_suite_UpdateClientInfo修改用户资料及审批())
 #####出金流程调试中
 # suite.addTests(get_suite_CreatEquitiesWithdrawalnew出金())
 
+
+
 if __name__ == '__main__':
+    title_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     HTMLReport.TestRunner(
-        title="EDDID_CDMS项目接口测试",
+        title="EDDID_CDMS项目接口测试"+str(title_time),
         description="如有疑问请联系-ganjiexiang",
-        report_file_name="EDDID_CDMS项目接口测试",
+        report_file_name="EDDID_CDMS项目接口测试"+str(title_time),
         # report_file_name字段不能改，关系到Jenkins的配置报告的生成
         thread_count=1
     ).run(suite)
+

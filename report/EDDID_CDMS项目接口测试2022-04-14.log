@@ -1,0 +1,56 @@
+2022-04-14 16:35:02,022   38632     INFO test_runner.py(156) - 预计并发线程数：1
+2022-04-14 16:35:02,024   37560     INFO result.py(69) - 开始测试： test_01_SQLCheck_ac_stat_front (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+2022-04-14 16:35:02,025   37560     INFO test_closeAcct账号关闭.py(13) - enableAcct停用后开启
+2022-04-14 16:35:02,375   37560     INFO closeAcct_关闭账号.py(23) - 步骤1查询账号当前状态执行完成，通过clnt='5014995216'查询cd_ac表的结果为(('5014995216', '501499', 'PERSONAL', 'CLIENT', 'FOREX', 'MARGIN', 'X000', 'admin', 'EDDID', None, datetime.date(2022, 3, 30), None, None, 'CLOSED', None, 'Y', 'Y', 'Y', 'N', 'N', 'N', 'N', 'N', 11, datetime.datetime(2022, 3, 30, 14, 35, 19), 'cdmstest', datetime.datetime(2022, 3, 30, 14, 36, 40), 'cdmstest', 4),)
+2022-04-14 16:35:08,388   37560     INFO test_closeAcct账号关闭.py(41) - 接口请求完成后，等待系统处理数据，等待6秒
+2022-04-14 16:35:08,417   37560  WARNING result.py(190) - 测试未通过： test_01_SQLCheck_ac_stat_front (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+Traceback (most recent call last):
+  File "F:\python\EDDID_CDMS\Test_Case\test_closeAcct账号关闭.py", line 19, in test_01_SQLCheck_ac_stat_front
+    self.assertEqual("NORMAL", ac_stat_front[0][13])
+AssertionError: 'NORMAL' != 'CLOSED'
+- NORMAL
++ CLOSED
+
+
+2022-04-14 16:35:08,417   37560     INFO result.py(90) - 测试结束： test_01_SQLCheck_ac_stat_front (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+2022-04-14 16:35:08,423   37560     INFO result.py(91) - 耗时： 6.39212441444397
+2022-04-14 16:35:08,429   37560     INFO result.py(69) - 开始测试： test_02_enableAcct账号停用 (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+2022-04-14 16:35:08,429   37560     INFO test_closeAcct账号关闭.py(13) - enableAcct停用后开启
+2022-04-14 16:35:08,588   37560     INFO closeAcct_关闭账号.py(44) - 提交开启的交易账号为：['5014995216', '501499', '12151818271', 'HandL', 'Miles', '230101196208281166']
+2022-04-14 16:35:08,678   37560     INFO closeAcct_关闭账号.py(52) - 步骤2提交接口'http://sit-cdms.ynm3k.com/api/acct/closeAcct';请求参数为:{'accountId': ['5014995216', '501499', '12151818271', 'HandL', 'Miles', '230101196208281166'], 'suspendReason': '自动化测试账号开启'};的响应结果为:'{"code":"MAS_02032","msg":"账户状态异常","data":""}'
+2022-04-14 16:35:14,685   37560     INFO test_closeAcct账号关闭.py(41) - 接口请求完成后，等待系统处理数据，等待6秒
+2022-04-14 16:35:14,690   37560  WARNING result.py(190) - 测试未通过： test_02_enableAcct账号停用 (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+Traceback (most recent call last):
+  File "F:\python\EDDID_CDMS\Test_Case\test_closeAcct账号关闭.py", line 26, in test_02_enableAcct账号停用
+    self.assertEqual("操作成功", enableAcct.json().get("msg"))
+AssertionError: '操作成功' != '账户状态异常'
+- 操作成功
++ 账户状态异常
+
+
+2022-04-14 16:35:14,696   37560     INFO result.py(90) - 测试结束： test_02_enableAcct账号停用 (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+2022-04-14 16:35:14,708   37560     INFO result.py(91) - 耗时： 6.267168760299683
+2022-04-14 16:35:14,708   37560     INFO result.py(69) - 开始测试： test_03_SQLCheckUser (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+2022-04-14 16:35:14,708   37560     INFO test_closeAcct账号关闭.py(13) - enableAcct停用后开启
+2022-04-14 16:35:14,888   37560     INFO closeAcct_关闭账号.py(61) - 步骤3执行完成，通过clnt='['5014995216', '501499', '12151818271', 'HandL', 'Miles', '230101196208281166']'查询cd_ac表的结果为(('5014995216', '501499', 'PERSONAL', 'CLIENT', 'FOREX', 'MARGIN', 'X000', 'admin', 'EDDID', None, datetime.date(2022, 3, 30), None, None, 'CLOSED', None, 'Y', 'Y', 'Y', 'N', 'N', 'N', 'N', 'N', 11, datetime.datetime(2022, 3, 30, 14, 35, 19), 'cdmstest', datetime.datetime(2022, 3, 30, 14, 36, 40), 'cdmstest', 4),)
+2022-04-14 16:35:14,888   37560     INFO test_closeAcct账号关闭.py(35) - 已执行用例03，数据库校验已完成
+2022-04-14 16:35:20,889   37560     INFO test_closeAcct账号关闭.py(41) - 接口请求完成后，等待系统处理数据，等待6秒
+2022-04-14 16:35:20,889   37560     INFO result.py(156) - 测试执行通过： test_03_SQLCheckUser (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+2022-04-14 16:35:20,889   37560     INFO result.py(90) - 测试结束： test_03_SQLCheckUser (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+2022-04-14 16:35:20,889   37560     INFO result.py(91) - 耗时： 6.180894374847412
+2022-04-14 16:35:20,889   38632     INFO test_runner.py(193) - 
+Pass	test_03_SQLCheckUser (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+
+2022-04-14 16:35:20,889   38632    ERROR test_runner.py(195) - 
+Fail	test_01_SQLCheck_ac_stat_front (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+Fail	test_02_enableAcct账号停用 (Test_Case.test_closeAcct账号关闭.Test_closeAcct账号关闭)
+
+2022-04-14 16:35:20,891   38632     INFO test_runner.py(213) - 
+测试结束！
+运行时间: 0:00:19.342870
+共计执行用例数量：3
+执行成功用例数量：1
+执行失败用例数量：2
+跳过执行用例数量：0
+产生异常用例数量：0
+

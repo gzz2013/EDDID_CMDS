@@ -210,9 +210,9 @@ class CreatUser无结构性产品用户创建():
             "bankCardNo": "",
             "elecNo": "",
             "responsible": "ryan.chan",
-            # "emailLanguage": "zh-hans",
+            "emailLanguage": "zh-hans",
             # 简体
-            "emailLanguage": "zh-hant",
+            # "emailLanguage": "zh-hant",
             # 繁体
             "accts": [
                 "securitiesCash",

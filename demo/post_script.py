@@ -26,7 +26,7 @@ def send2robot(tokenid, text):
     # 有超链接的data
     print("当前时间为：", localtime)
     # title_time = titletimes
-    mesurl="http://192.168.57.23:8080/job/cdms/ws/report/EDDID_CDMS项目接口测试"+str(local_times)+".html"
+    # mesurl="http://192.168.57.23:8080/job/cdms/ws/report/EDDID_CDMS项目接口测试"+str(local_times)+".html"
     data = {
         "msgtype": "link",
         "link": {
@@ -35,7 +35,7 @@ def send2robot(tokenid, text):
             "title": text,
             "picUrl": "",
             # 自动化测试报告URL
-            "messageUrl": mesurl
+            "messageUrl": "http://192.168.57.23:8080/job/cdms/HTML_20Report/"
         }
     }
     send2robotre = s.post(url=oapi_url, headers=headers, json=data)

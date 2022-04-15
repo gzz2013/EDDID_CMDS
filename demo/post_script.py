@@ -1,3 +1,5 @@
+import datetime
+
 import requests
 import time
 import smtplib
@@ -46,10 +48,11 @@ def post_Email(username):
     password = 'W9d7Dd48tC7'  # 邮箱密码：需要使用授权码
     # username_recv = "ganjiexiang@qq.com,"#收件人，多个收件人用逗号隔开
     username_recv = username
+    title_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     message = '''
-    <p><a href="http://192.168.57.23:8080/job/cdms/HTML_20Report/">自动化测试报告传送门</a></p>
+    <p><a href="{}">自动化测试报告传送门</a></p>
     <p>-----如有疑问可咨询：ganjiexiang</p>
-    '''
+    '''.format(title_time)
     mail = MIMEText(message, 'html', _charset="utf-8")
     mail['Subject'] = 'CMDS自动化测试报告' + localtime
     mail['From'] = username_send  # 发件人

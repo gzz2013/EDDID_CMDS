@@ -4,8 +4,8 @@ import unittest
 import HTMLReport
 from Business.login import cdms_获取token
 from Common.data_文本读写 import *
-import datetime
-
+# import datetime
+from Config.cdms_config import *
 from Test_Suite.suite_cmds_Summary import *
 
 suite = unittest.TestSuite()
@@ -41,11 +41,12 @@ suite.addTests(get_suite_Creat_H5_EDDAdeposit入金())
 
 
 if __name__ == '__main__':
-    title_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    # title_time = titletimes
+    # title_time=datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     HTMLReport.TestRunner(
-        title="EDDID_CDMS项目接口测试"+str(title_time),
+        title="EDDID_CDMS项目接口测试"+str(local_times),
         description="如有疑问请联系-ganjiexiang",
-        report_file_name="EDDID_CDMS项目接口测试"+str(title_time),
+        report_file_name="EDDID_CDMS项目接口测试"+str(local_times),
         # report_file_name字段不能改，关系到Jenkins的配置报告的生成
         thread_count=1
     ).run(suite)

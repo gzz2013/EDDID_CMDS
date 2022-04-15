@@ -1,6 +1,8 @@
 
 #环境配置
 # sit的url和数据库
+import datetime
+
 cookfr="LANGUAGE=zh_CN;GB-SYS-SID-SIT="
 url = "http://sit-cdms.ynm3k.com"
 uatdatabase="eddid_gfss_sit"
@@ -56,6 +58,5 @@ phone=10928489323
 sqldata_h5="message_push_qa"
 app_base_url="https://route-service-qa.eddid.com.cn:1443"
 
-
-
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+local_times = datetime.datetime.now().strftime("%Y%m%d%H%M%S")

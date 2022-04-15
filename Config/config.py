@@ -79,9 +79,14 @@ aos_base_url_sit="https://aos-api-qa.eddid.com.cn:1443"#"https://aos-api-qa.eddi
 aos_base_url_uat="https://aos-api-uat.eddid.com.cn:1443"#"https://aos-api-qa.eddid.com.cn:1443"
 app_base_url_sit='https://route-service-qa.eddid.com.cn:1443'
 
+# 生成时间戳
+
+# titletimes = datetime.datetime.now().strftime("%Y%m%d%H%M")
 
 if __name__ == "__main__":
     logger.info('this is test')
     # logger.addHandler(fh)
     logger.addHandler(f_handler)
     print("根目录：{}".format(basedir))
+
+

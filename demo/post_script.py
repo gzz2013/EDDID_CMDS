@@ -3,7 +3,7 @@ import requests
 import time
 import smtplib
 from email.mime.text import MIMEText
-from Config.cdms_config import *
+# from Config.cdms_config import *
 
 # tokenid为机器人的token，text为关键字
 localtime = time.strftime("%Y-%m-%d %H:%M", time.localtime())
